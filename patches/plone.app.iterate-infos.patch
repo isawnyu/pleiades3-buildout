@@ -28,4 +28,3 @@ diff -ru ../plone.app.iterate-1.2.3-orig/plone/app/iterate/browser/info.py ./plo
              return self.template()
          else:
              return ""
-

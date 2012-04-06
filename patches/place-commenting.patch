@@ -1,0 +1,18 @@
+Index: plone/app/discussion/conversation.py
+===================================================================
+--- plone/app/discussion/conversation.py	(revision 49396)
++++ plone/app/discussion/conversation.py	(working copy)
+@@ -110,8 +110,11 @@
+ 
+         parent = aq_inner(self.__parent__)
+ 
+-        # Always return False if object is a folder
+-        if (IFolderish.providedBy(parent) and
++        # Always return False if object is a non-Place folder
++        from Products.PleiadesEntity.content.interfaces import IPlace
++        if IPlace.providedBy(parent):
++            pass
++        elif (IFolderish.providedBy(parent) and
+             not INonStructuralFolder.providedBy(parent)):
+             return False
+ 

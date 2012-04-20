@@ -1,0 +1,44 @@
+diff -rub plone.app.iterate-1.2.5/plone/app/iterate/browser/info.py ../eggs/plone.app.iterate-1.2.5-py2.4.egg/plone/app/iterate/browser/info.py
+--- plone.app.iterate-1.2.5/plone/app/iterate/browser/info.py	2007-07-08 01:27:02.000000000 -0600
++++ ../eggs/plone.app.iterate-1.2.5-py2.4.egg/plone/app/iterate/browser/info.py	2012-04-03 12:25:06.000000000 -0600
+@@ -16,7 +16,7 @@
+ 
+ from plone.app.iterate.util import get_storage
+ from plone.app.iterate.interfaces import keys
+-
++from plone.app.iterate.permissions import CheckoutPermission
+ from plone.app.iterate.relation import WorkingCopyRelation
+ 
+ from plone.memoize.instance import memoize
+@@ -41,7 +41,7 @@
+     def created( self ):
+         time = self.properties.get( keys.checkout_time, DateTime() )
+         util = getToolByName(self.context, 'translation_service')
+-        return util.ulocalized_time(time, None, self.context, domain='plonelocales')
++        return util.ulocalized_time(time, True, self.context, domain='plonelocales')
+ 
+     @memoize
+     def creator( self ):
+@@ -80,7 +80,7 @@
+ 
+     def render(self):
+         if self.working_copy() is not None and \
+-            getSecurityManager().checkPermission(ModifyPortalContent, self.context):
++            getSecurityManager().checkPermission(CheckoutPermission, self.context):
+             return self.template()
+         else:
+             return ""
+diff -rub plone.app.iterate-1.2.5/plone/app/iterate/configure.zcml ../eggs/plone.app.iterate-1.2.5-py2.4.egg/plone/app/iterate/configure.zcml
+--- plone.app.iterate-1.2.5/plone/app/iterate/configure.zcml	2008-01-19 21:34:32.000000000 -0700
++++ ../eggs/plone.app.iterate-1.2.5-py2.4.egg/plone/app/iterate/configure.zcml	2012-04-20 15:35:58.000000000 -0600
+@@ -31,10 +31,6 @@
+     <adapter factory=".copier.ContentCopier" />
+     
+     <!-- Checkout folder locators -->
+-    <adapter
+-        factory=".containers.HomeFolderLocator"
+-        name="plone.app.iterate.home"
+-        />
+         
+     <adapter
+         factory=".containers.ParentFolderLocator"

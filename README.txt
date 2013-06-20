@@ -22,13 +22,15 @@ pleiades-production.cfg
   Production libraries and eggs, ZEO server and clients, nginx balancer,
   Varnish cache, and supervisor.
 
-To install, first run
+Building
+--------
 
-  $ buildout install zope2
+1. Clone the repo.
+2. Make a Python 2.4.6 virtualenv in the repo directory.
+3. Run "bin/python bootstrap.py"
+4. Run "bin/buildout install zope2"
+5. Run "bin/buildout"
 
-Then
-
-  $ buildout
-
-as suggested in http://maurits.vanrees.org/weblog/archive/2010/08/fake-version-pinning.
+The two-step buildout is suggested in
+http://maurits.vanrees.org/weblog/archive/2010/08/fake-version-pinning.
 

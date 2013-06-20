@@ -1,0 +1,11 @@
+--- a/configure.zcml	2013-06-20 13:01:23.000000000 -0600
++++ b/configure.zcml	2013-06-20 13:01:53.000000000 -0600
+@@ -8,8 +8,6 @@
+
+   <includeDependencies package="." />
+
+-  <include package="Products.CMFCore" file="permissions.zcml" />
+-
+   <five:registerPackage package="." initialize=".initialize" />
+   <i18n:registerTranslations directory="locales" />
+

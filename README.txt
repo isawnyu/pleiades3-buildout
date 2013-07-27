@@ -1,7 +1,7 @@
 Pleiades Buildout
 =================
 
-The buildout configuration file are:
+The buildout configuration files are:
 
 buildout.cfg
   Libraries and eggs common to development and production
@@ -21,6 +21,14 @@ versions.cfg
 pleiades-production.cfg
   Production libraries and eggs, ZEO server and clients, nginx balancer,
   Varnish cache, and supervisor.
+
+Also included are a bootstrap.py script for zc.buildout==1.4.4 and a directory
+of patches.
+
+The Pleiades buildout uses a patched version of ctypes at 
+http://atlantides.org/eggcarton/ctypes-1.0.2-pleiades1.tar.gz.
+
+Pleiades package distributions are at http://atlantides.org/eggcarton/.
 
 Building
 --------

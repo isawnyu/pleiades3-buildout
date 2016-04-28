@@ -1,4 +1,4 @@
-
+import sys
 from optparse import OptionParser
 
 from pleiades.dump import dump_catalog, names_schema, getSite, spoofRequest
@@ -19,7 +19,8 @@ if __name__ == '__main__':
         "-x", "--include-features", dest="include_features", default=False,
         action="store_true", help="Run script as user")
 
-    opts, args = parser.parse_args(sys.argv[1:])
+    arg_start = [i for (i, v) in enumerate(sys.argv) if '.py' in v][0]
+    opts, args = parser.parse_args(sys.argv[arg_start:])
 
     kw = {}
     

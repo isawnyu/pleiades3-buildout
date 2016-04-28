@@ -1,6 +1,6 @@
 # Run as a script, this dumps all published places to N3 RDF
-
 import logging
+import sys
 from optparse import OptionParser
 
 import transaction
@@ -61,7 +61,8 @@ if __name__ == '__main__':
         action='store_true',
         help='Interpret places as a range. Example: "-p=1,3 -r" dumps all places starting with "1" and up to but not including "3" or higher')
 
-    opts, args = parser.parse_args(argv[1:])
+    arg_start = [i for (i, v) in enumerate(sys.argv) if '.py' in v][0]
+    opts, args = parser.parse_args(sys.argv[arg_start:])
 
     if (int(bool(opts.authors)) + int(bool(opts.vocabulary)) + int(bool(opts.places))) > 1:
         raise ValueError("-a, -p, and -v options are exclusive")

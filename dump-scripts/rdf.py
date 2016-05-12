@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
     app = spoofRequest(app)
     site = getSite(app)
-    app.REQUEST = app.aq_parent.REQUEST
+    app.REQUEST.environ.update(app.aq_parent.REQUEST.environ)
     count = 0
 
     if opts.authors:

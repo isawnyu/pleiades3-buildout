@@ -122,7 +122,7 @@ if __name__ == '__main__':
                 log.exception("Failed to add object graph of %r to dump batch: %s", obj, e)
             count += 1
             if count % COMMIT_THRESHOLD == 0:
-                transaction.commit()
+                transaction.savepoint(optimistic=True)
         sys.stdout.write("""# Pleiades RDF Dump
 # Contents: Pleiades Places %s
 # Date: %s

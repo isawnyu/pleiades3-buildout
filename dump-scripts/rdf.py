@@ -29,7 +29,7 @@ if __name__ == '__main__':
         _oldpolicy=setSecurityPolicy(_policy)
         newSecurityManager(None, OmnipotentUser().__of__(app.acl_users))
         this_environ = {'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET'}
-        this_environ["SERVER_NAME"] =  environ.get('SERVER_NAME', 'localhost')
+        this_environ["SERVER_NAME"] = environ.get('SERVER_NAME', 'localhost')
         if 'VH_ROOT' in environ:
             this_environ['VH_ROOT'] = environ['VH_ROOT']
         return makerequest(app, environ=this_environ)
@@ -69,6 +69,7 @@ if __name__ == '__main__':
 
     app = spoofRequest(app)
     site = getSite(app)
+    app.REQUEST = app.aq_parent.REQUEST
     count = 0
 
     if opts.authors:

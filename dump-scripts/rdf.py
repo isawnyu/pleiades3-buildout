@@ -12,7 +12,7 @@ from Products.CMFCore.tests.base.security import OmnipotentUser
 from Products.CMFCore.utils import getToolByName
 from Testing.makerequest import makerequest
 
-from pleiades.dump import secure, getSite
+from pleiades.dump import secure, getSite, spoofRequest
 from pleiades.rdf.common import PlaceGrapher, PersonsGrapher, VocabGrapher
 from pleiades.rdf.common import place_graph
 
@@ -23,16 +23,6 @@ if __name__ == '__main__':
     from sys import argv, stdin, stdout
 
     log = logging.getLogger('pleiades.rdf')
-
-    def spoofRequest(app):
-        _policy=PermissiveSecurityPolicy()
-        _oldpolicy=setSecurityPolicy(_policy)
-        newSecurityManager(None, OmnipotentUser().__of__(app.acl_users))
-        this_environ = {'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET'}
-        this_environ["SERVER_NAME"] = environ.get('SERVER_NAME', 'localhost')
-        if 'VH_ROOT' in environ:
-            this_environ['VH_ROOT'] = environ['VH_ROOT']
-        return makerequest(app, environ=this_environ)
 
     parser = OptionParser()
     parser.add_option(
@@ -68,8 +58,15 @@ if __name__ == '__main__':
         raise ValueError("-a, -p, and -v options are exclusive")
 
     app = spoofRequest(app)
+    server_name = environ.get('SERVER_NAME', 'pleiades.stoa.org')
+    vh_root = environ.get('VH_ROOT', '/plone')
+    app.REQUEST.environ.update({'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET',
+                                'SERVER_NAME': server_name,
+                                'VH_ROOT': vh_root})
+    app.REQUEST.setServerURL('http', server_name)
+    app.REQUEST.other['VirtualRootPhysicalPath'] = vh_root.strip('/')
+
     site = getSite(app)
-    app.REQUEST.environ.update(app.aq_parent.REQUEST.environ)
     count = 0
 
     if opts.authors:

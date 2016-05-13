@@ -20,7 +20,6 @@ COMMIT_THRESHOLD = 50
 
 if __name__ == '__main__':
     from os import environ
-    from sys import argv, stdin, stdout
 
     log = logging.getLogger('pleiades.rdf')
 
@@ -58,13 +57,13 @@ if __name__ == '__main__':
         raise ValueError("-a, -p, and -v options are exclusive")
 
     app = spoofRequest(app)
-    server_name = environ.get('SERVER_NAME', 'pleiades.stoa.org')
-    vh_root = environ.get('VH_ROOT', '/plone')
+    server_name = environ.get('SERVER_NAME', 'pleiades.stoa.org').strip()
+    vh_root = environ.get('VH_ROOT', '/plone/').strip()
     app.REQUEST.environ.update({'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET',
                                 'SERVER_NAME': server_name,
                                 'VH_ROOT': vh_root})
     app.REQUEST.setServerURL('http', server_name)
-    app.REQUEST.other['VirtualRootPhysicalPath'] = vh_root.strip('/')
+    app.REQUEST.other['VirtualRootPhysicalPath'] = vh_root
 
     site = getSite(app)
     count = 0

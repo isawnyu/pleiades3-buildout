@@ -12,7 +12,7 @@ from Products.CMFCore.tests.base.security import OmnipotentUser
 from Products.CMFCore.utils import getToolByName
 from Testing.makerequest import makerequest
 
-from pleiades.dump import secure, getSite
+from pleiades.dump import secure, getSite, spoofRequest
 from pleiades.rdf.common import PlaceGrapher, PersonsGrapher, VocabGrapher
 from pleiades.rdf.common import place_graph
 
@@ -20,19 +20,8 @@ COMMIT_THRESHOLD = 50
 
 if __name__ == '__main__':
     from os import environ
-    from sys import argv, stdin, stdout
 
     log = logging.getLogger('pleiades.rdf')
-
-    def spoofRequest(app):
-        _policy=PermissiveSecurityPolicy()
-        _oldpolicy=setSecurityPolicy(_policy)
-        newSecurityManager(None, OmnipotentUser().__of__(app.acl_users))
-        this_environ = {'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET'}
-        this_environ["SERVER_NAME"] =  environ.get('SERVER_NAME', 'localhost')
-        if 'VH_ROOT' in environ:
-            this_environ['VH_ROOT'] = environ['VH_ROOT']
-        return makerequest(app, environ=this_environ)
 
     parser = OptionParser()
     parser.add_option(
@@ -68,6 +57,14 @@ if __name__ == '__main__':
         raise ValueError("-a, -p, and -v options are exclusive")
 
     app = spoofRequest(app)
+    server_name = environ.get('SERVER_NAME', 'pleiades.stoa.org').strip()
+    vh_root = environ.get('VH_ROOT', '/plone/').strip()
+    app.REQUEST.environ.update({'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET',
+                                'SERVER_NAME': server_name,
+                                'VH_ROOT': vh_root})
+    app.REQUEST.setServerURL('http', server_name)
+    app.REQUEST.other['VirtualRootPhysicalPath'] = vh_root
+
     site = getSite(app)
     count = 0
 
@@ -121,7 +118,7 @@ if __name__ == '__main__':
                 log.exception("Failed to add object graph of %r to dump batch: %s", obj, e)
             count += 1
             if count % COMMIT_THRESHOLD == 0:
-                transaction.commit()
+                transaction.abort()
         sys.stdout.write("""# Pleiades RDF Dump
 # Contents: Pleiades Places %s
 # Date: %s
@@ -154,7 +151,7 @@ if __name__ == '__main__':
                 log.exception("Failed to add object graph of %r to dump batch: %s", obj, e)
             count += 1
             if count % COMMIT_THRESHOLD == 0:
-                transaction.commit()
+                transaction.abort()
         sys.stdout.write("""# Pleiades RDF Dump
 # Contents: Pleiades Places Range %s
 # Date: %s

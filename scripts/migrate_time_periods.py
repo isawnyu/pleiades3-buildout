@@ -40,8 +40,8 @@ if __name__ == '__main__':
         state = wf_tool.getInfoFor(term, 'review_state', '')
         hidden = state != 'published' and state != 'drafting'
         new_terms.append(dict(id=unicode(id),
-                                title=unicode(title),
-                                description=unicode(desc),
+                                title=title.decode('utf-8'),
+                                description=desc.decode('utf-8'),
                                 lower_bound=min,
                                 upper_bound=max,
                                 same_as=None,

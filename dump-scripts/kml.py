@@ -2,9 +2,10 @@
 
 if __name__ == '__main__':
     from Testing.makerequest import makerequest
+    from pleiades.dump import getSite
     from pleiades.kml.dump import AllPlacesDocument, pt, main_macros, kml_macros
 
-    site = app['plone']
+    site = getSite(app)
     context = makerequest(site)
     doc = pt(
         view=AllPlacesDocument(site), 

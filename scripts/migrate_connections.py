@@ -20,6 +20,7 @@ if __name__ == '__main__':
     catalog = getToolByName(site, "portal_catalog")
     places = catalog(portal_type='Place')
 
+    total = 0
     for brain in places:
         place = brain.getObject()
         old_connections = place.getConnections()
@@ -36,5 +37,8 @@ if __name__ == '__main__':
         place.setConnections_from([])
         place.reindexObject()
         print "Migrated {} connections for {}".format(migrated, place.Title())
+        total += 1
+        if total % 50 == 0:
+            transaction.commit()
 
     transaction.commit()

@@ -36,11 +36,24 @@ if __name__ == '__main__':
                 workflow.doActionFor(place[new_id], 'publish')
                 place[new_id].reindexObject()
                 migrated += 1
-        place.setConnections([])
-        place.setConnections_from([])
         print "Migrated {} connections for {}".format(migrated, place.Title())
         total += 1
-        if total % 50 == 0:
+        if total % 100 == 0:
+            transaction.commit()
+
+    transaction.commit()
+    print "Migrated {} total connections.".format(total)
+
+
+    print "Removing old connections..."
+    total = 0
+    for brain in places:
+        place = brain.getObject()
+        place.setConnections([])
+        place.setConnections_from([])
+        place.reindexObject()
+        total += 1
+        if total % 100 == 0:
             transaction.commit()
 
     transaction.commit()

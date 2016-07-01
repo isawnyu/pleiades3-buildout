@@ -18,6 +18,7 @@ if __name__ == '__main__':
     site = getSite(app)
 
     catalog = getToolByName(site, "portal_catalog")
+    workflow = getToolByName(site, "portal_workflow")
     places = catalog(portal_type='Place')
 
     total = 0
@@ -31,11 +32,11 @@ if __name__ == '__main__':
                 place.invokeFactory('Connection', new_id)
                 place[new_id].setConnection([connection.UID()])
                 place[new_id].setTitle([connection.Title()])
+                workflow.doActionFor(place[new_id], 'publish')
                 place[new_id].reindexObject()
                 migrated += 1
         place.setConnections([])
         place.setConnections_from([])
-        place.reindexObject()
         print "Migrated {} connections for {}".format(migrated, place.Title())
         total += 1
         if total % 50 == 0:

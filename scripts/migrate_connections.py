@@ -32,6 +32,7 @@ if __name__ == '__main__':
                 place.invokeFactory('Connection', new_id)
                 place[new_id].setConnection([connection.UID()])
                 place[new_id].setTitle([connection.Title()])
+                workflow.doActionFor(place[new_id], 'submit')
                 workflow.doActionFor(place[new_id], 'publish')
                 place[new_id].reindexObject()
                 migrated += 1

@@ -51,7 +51,7 @@ if __name__ == '__main__':
         place = brain.getObject()
         place.setConnections([])
         place.setConnections_from([])
-        place.reindexObject()
+        place.reindexObject(idxs=['connectsWith', 'hasConnectionsWith'])
         total += 1
         if total % 100 == 0:
             transaction.commit()

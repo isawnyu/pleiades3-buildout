@@ -11,6 +11,21 @@ from plone.app.iterate.interfaces import ICheckinCheckoutPolicy
 from pleiades.dump import getSite, spoofRequest
 
 
+FIELD_NAMES = {'attested': 'nameAttested',
+               'language': 'nameLanguage',
+               'nameType': 'nameType',
+               'transcriptionAccuracy': 'accuracy',
+               'transcriptionCompleteness': 'completeness',
+               'associationCertainty': 'associationCertainty',
+               'details': 'text',
+               'featureType': 'featureType',
+               'associationCertainty': 'associationCertainty',
+               'details': 'text',
+               'archaeologicalRemains': 'archaeologicalRemains',
+               'locationType': 'locationType',
+               }
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Update Pleiades content.')
     parser.add_argument('--dry-run', action='store_true', default=False,
@@ -48,8 +63,6 @@ if __name__ == '__main__':
     if args.workflow not in ['review', 'draft']:
         print "Direct content update. Change message will be ignored."
         print
-
-    marker = object()
 
     for update in updates:
         path, values = update.items()[0]
@@ -96,8 +109,11 @@ if __name__ == '__main__':
                 else:
                     print "Content Id cannot be deleted or appended. Skipping."
                 continue
-            old_value = getattr(content, key, marker)
-            if old_value is not marker:
+            if key in FIELD_NAMES:
+                key = FIELD_NAMES[key]
+            field = content.getField(key)
+            if field is not None:
+                old_value = field.getRaw(content)
                 if modify['mode'] == 'delete':
                     value = None
                 elif modify['mode'] == 'replace':

@@ -5,6 +5,7 @@ from Acquisition import aq_parent
 import transaction
 from webdav.Lockable import ResourceLockedError
 
+from Products.Archetypes.exceptions import ReferenceException
 from Products.CMFCore.utils import getToolByName
 from plone.app.iterate.interfaces import ICheckinCheckoutPolicy
 
@@ -25,11 +26,20 @@ FIELD_NAMES = {'attested': 'nameAttested',
                'locationType': 'locationType',
                }
 
+CONTENT_TYPES = ['Connection',
+                 'Feature',
+                 'Location',
+                 'Name',
+                 'Place',
+                 ]
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Update Pleiades content.')
     parser.add_argument('--dry-run', action='store_true', default=False,
                         dest='dry_run', help='No changes will be made.')
+    parser.add_argument('--create', action='store_true', default=False,
+                        dest='create', help='Process content additions.')
     parser.add_argument('--workflow', choices=['publish', 'review', 'draft'],
                         default='publish',
                         help='Direct edit, or set as review or draft.')
@@ -48,7 +58,7 @@ if __name__ == '__main__':
     except IOError, msg:
         parser.error(str(msg))
 
-    updates = json.loads(args.file.read())['updates']
+    updates = json.loads(args.file.read()).get('updates', [])
 
     app = spoofRequest(app)
     site = getSite(app)
@@ -65,25 +75,42 @@ if __name__ == '__main__':
         print
 
     for update in updates:
+        content_type = None
+        creating = False
+        new_id = ''
         path, values = update.items()[0]
+        if '::' in path:
+            content_type, path = path.split('::')
+            if not args.create:
+                continue
+            creating = True
         if path.startswith('/'):
             path = path[1:]
-        print "Looking for object at path: {}".format(path)
+        if creating:
+            print "Creating {} at path: {}".format(content_type, path)
+            path, new_id = path.rsplit('/', 1)
+        else:
+            print "Updating object at path: {}".format(path)
         try:
             content = site.restrictedTraverse(path.encode('utf-8'))
         except (KeyError, AttributeError):
             print "Not found. Skipping."
             print
             continue
-        print 'Found {} with title "{}"'.format(content.portal_type,
-                                                content.Title())
+        if creating:
+            content.invokeFactory(content_type, new_id)
+            content = content[new_id]
+            print 'Created {} with id "{}"'.format(content.portal_type, new_id)
+        else:
+            print 'Found {} with title "{}"'.format(content.portal_type,
+                                                    content.Title())
         status = workflow.getStatusOf("pleiades_entity_workflow", content)
         review_state = status and status.get('review_state',
                                              'unknown') or 'unknown'
         print "Workflow state: {}.".format(review_state)
 
         container = aq_parent(content)
-        if args.workflow in ['review', 'draft']:
+        if args.workflow in ['review', 'draft'] and not creating:
             policy = ICheckinCheckoutPolicy(content)
             working_copy = policy.checkout(container)
             print "Checked out working copy."
@@ -95,6 +122,9 @@ if __name__ == '__main__':
         for key, modify in values.items():
             if key == 'change_note':
                 change_note = modify
+                continue
+            if key == 'id' and creating:
+                print "Content id change ignored during creation."
                 continue
             if key == 'id':
                 if modify['mode'] == 'replace':
@@ -134,7 +164,11 @@ if __name__ == '__main__':
                 elif key == 'subject':
                     content.setSubject(value)
                 else:
-                    setattr(content, key, value)
+                    try:
+                        field.set(content, value)
+                    except  ReferenceException:
+                        print 'Invalid reference on field "{}". Skipping.'.format(key)
+                        continue
                 if isinstance(value, basestring):
                     value = value.encode('utf-8')
                 print 'Set "{}" to: "{}". Old value: "{}"'.format(key,
@@ -156,7 +190,7 @@ if __name__ == '__main__':
             content.reindexObjectSecurity()
             print "Set owner to {}".format(args.owner)
 
-        if args.workflow in ['review', 'draft']:
+        if args.workflow in ['review', 'draft'] and not creating:
             if args.workflow == 'review' and review_state == 'drafting':
                 workflow.doActionFor(content, 'submit')
                 print "Set workflow state to review."
@@ -164,6 +198,12 @@ if __name__ == '__main__':
             policy.checkin(change_note)
             print "Checked in working copy."
 
+        if creating and args.workflow in ['review', 'publish']:
+            workflow.doActionFor(content, 'submit')
+            print "Set workflow state to reviewing."
+        if creating and args.workflow == 'publish':
+            workflow.doActionFor(content, 'publish')
+            print "Set workflow state to published."
         print 'Updated "{}".'.format(content.Title())
         print
 

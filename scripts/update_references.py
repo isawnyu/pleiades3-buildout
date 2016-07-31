@@ -22,13 +22,14 @@ if __name__ == '__main__':
     total = 0
     for brain in brains:
         migrated = 0
+        all_refs = 0
         obj = brain.getObject()
         for fname in FNAMES:
             field = obj.getField(fname, None)
             if field is None:
                 continue
             refs = field.get(obj)
-            all_refs = len(refs)
+            all_refs += len(refs)
             for entry in refs:
                 identifier = entry.get('identifier')
                 if validation.validate('isURL', identifier) != 1:

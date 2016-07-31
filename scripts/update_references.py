@@ -14,6 +14,7 @@ TRANSACTION_COUNT = 100
 if __name__ == '__main__':
     app = spoofRequest(app)
     site = getSite(app)
+    p_jar = site._p_jar
 
     catalog = getToolByName(site, "portal_catalog")
     brains = catalog(object_provides=IWork.__identifier__)
@@ -49,6 +50,7 @@ if __name__ == '__main__':
         total += 1
         if total % TRANSACTION_COUNT == 0:
             transaction.commit()
+            p_jar.cacheMinimize()
 
     transaction.commit()
     print "Migrated references for {} objects.".format(total)

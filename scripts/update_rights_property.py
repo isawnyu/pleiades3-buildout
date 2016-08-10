@@ -41,7 +41,10 @@ if __name__ == '__main__':
                 total += 1
                 if total >= int(start_object):
                     ct = brain.getObject()
-                    ct.setRights(ct.Rights()) # just resave the rights field. silly solution but works.
+                    if '&#169;' in ct.Rights():
+                        ct.setRights(ct.Rights().replace('&#169;', '\xc2\xa9')) # fix the copyright symbol if messed up
+                    else:
+                        ct.setRights(ct.Rights()) # just resave the rights field. silly solution but works.
                     if total % 100 == 0:
                         transaction.commit()
                         print "TRANSACTION COMMIT: {} {}s processed of {}".format(total, ct_type, len(content_type))
@@ -60,7 +63,10 @@ if __name__ == '__main__':
             print "===================================================="
             for brain in content_type:
                 ct = brain.getObject()
-                ct.setRights(ct.Rights()) # just resave the rights field. silly solution but works.
+                if '&#169;' in ct.Rights():
+                    ct.setRights(ct.Rights().replace('&#169;', '\xc2\xa9')) # fix the copyright symbol if messed up
+                else:
+                    ct.setRights(ct.Rights()) # just resave the rights field. silly solution but works.
                 total += 1
                 if total % 100 == 0:
                     transaction.commit()

@@ -41,7 +41,7 @@ if __name__ == '__main__':
     parser.add_argument('--create', action='store_true', default=False,
                         dest='create', help='Process content additions.')
     parser.add_argument('--workflow', choices=['publish', 'review', 'draft'],
-                        default='publish',
+                        default='draft',
                         help='Direct edit, or set as review or draft.')
     parser.add_argument('--message', default="Editorial adjustment (batch)",
                         help='Commit message.')
@@ -69,10 +69,6 @@ if __name__ == '__main__':
     print
     print "Starting batch content update..."
     print
-
-    if args.workflow not in ['review', 'draft']:
-        print "Direct content update. Change message will be ignored."
-        print
 
     for update in updates:
         content_type = None
@@ -110,7 +106,7 @@ if __name__ == '__main__':
         print "Workflow state: {}.".format(review_state)
 
         container = aq_parent(content)
-        if args.workflow in ['review', 'draft'] and not creating:
+        if not creating:
             policy = ICheckinCheckoutPolicy(content)
             working_copy = policy.checkout(container)
             print "Checked out working copy."
@@ -190,13 +186,15 @@ if __name__ == '__main__':
             content.reindexObjectSecurity()
             print "Set owner to {}".format(args.owner)
 
-        if args.workflow in ['review', 'draft'] and not creating:
-            if args.workflow == 'review' and review_state == 'drafting':
-                workflow.doActionFor(content, 'submit')
-                print "Set workflow state to review."
-            policy = ICheckinCheckoutPolicy(working_copy)
-            policy.checkin(change_note)
-            print "Checked in working copy."
+        if args.workflow in ['review', 'publish'] and not creating:
+            workflow.doActionFor(content, 'submit')
+            print "Set workflow state to review."
+            if args.workflow == 'publish':
+                workflow.doActionFor(content, 'publish')
+                print "Set workflow state to published."
+                policy = ICheckinCheckoutPolicy(working_copy)
+                policy.checkin(change_note)
+                print "Checked in working copy."
 
         if creating and args.workflow in ['review', 'publish']:
             workflow.doActionFor(content, 'submit')

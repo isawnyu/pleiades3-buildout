@@ -31,11 +31,22 @@ if __name__ == '__main__':
             refs = field.get(obj)
             all_refs += len(refs)
             for entry in refs:
-                identifier = entry.get('identifier')
+                set_cite = False
+                if entry.get('range'):
+                    entry['formatted_citation'] = entry['range']
+                    del entry['range']
+                    migrated += 1
+
+                identifier = entry.get('identifier', '')
                 if validation.validate('isURL', identifier) != 1:
                     continue
+                if not identifier.strip():
+                    continue
+                entry['identifier'] = ' '
+
                 if (entry.get('bibliographic_uri').strip() or
                         entry.get('access_uri').strip()):
+                    migrated += 1
                     continue
                 for site_name in BIB_SITES:
                     if site_name in identifier:
@@ -43,7 +54,10 @@ if __name__ == '__main__':
                         break
                 else:
                     entry['access_uri'] = identifier
-                migrated += 1
+
+                if not set_cite:
+                    migrated += 1
+
             if migrated:
                 field.set(obj, refs)
         print "Migrated {} references of {} for {}".format(

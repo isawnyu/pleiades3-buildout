@@ -109,7 +109,7 @@ if __name__ == '__main__':
         if not creating:
             policy = ICheckinCheckoutPolicy(content)
             working_copy = policy.checkout(container)
-            print "Checked out working copy."
+            print "Checked out working copy: {}".format(working_copy.absolute_url_path())
         else:
             policy = None
             working_copy = content

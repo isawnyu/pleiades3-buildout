@@ -112,7 +112,7 @@ if __name__ == '__main__':
             print "Checked out working copy."
         else:
             policy = None
-            working_copy = None
+            working_copy = content
 
         change_note = args.message
         for key, modify in values.items():
@@ -124,11 +124,11 @@ if __name__ == '__main__':
                 continue
             if key == 'id':
                 if modify['mode'] == 'replace':
-                    old_id = content.getId()
+                    old_id = working_copy.getId()
                     new_id = modify['values'][0].encode('utf-8')
                     try:
                         container.manage_renameObjects([old_id], [new_id])
-                        content = container[new_id]
+                        working_copy = container[new_id]
                         print 'Renamed "{}" to "{}".'.format(old_id, new_id)
                     except ResourceLockedError:
                         print "Locked. Cannot change id if checked out."
@@ -137,9 +137,9 @@ if __name__ == '__main__':
                 continue
             if key in FIELD_NAMES:
                 key = FIELD_NAMES[key]
-            field = content.getField(key)
+            field = working_copy.getField(key)
             if field is not None:
-                old_value = field.getRaw(content)
+                old_value = field.getRaw(working_copy)
                 if modify['mode'] == 'delete':
                     value = None
                 elif modify['mode'] == 'replace':
@@ -154,14 +154,14 @@ if __name__ == '__main__':
                     value = list(old_value)
                     value.extend(modify['values'])
                 if key == 'description':
-                    content.setDescription(value)
+                    working_copy.setDescription(value)
                 elif key == 'title':
-                    content.setTitle(value)
+                    working_copy.setTitle(value)
                 elif key == 'subject':
-                    content.setSubject(value)
+                    working_copy.setSubject(value)
                 else:
                     try:
-                        field.set(content, value)
+                        field.set(working_copy, value)
                     except  ReferenceException:
                         print 'Invalid reference on field "{}". Skipping.'.format(key)
                         continue
@@ -174,35 +174,35 @@ if __name__ == '__main__':
                 print 'Field "{}" does not exist. Skipping.'.format(key)
 
         if args.creators:
-            content.setCreators(args.creators)
+            working_copy.setCreators(args.creators)
             print "Set creators to {}".format(args.creators)
         if args.contributors:
-            content.setContributors(args.contributors)
+            working_copy.setContributors(args.contributors)
             print "Set contributors to {}".format(args.contributors)
         if args.owner:
             member = membership.getMemberById(args.owner)
             user = member.getUser()
-            content.changeOwnership(user, recursive=False)
-            content.reindexObjectSecurity()
+            working_copy.changeOwnership(user, recursive=False)
+            working_copy.reindexObjectSecurity()
             print "Set owner to {}".format(args.owner)
 
         if args.workflow in ['review', 'publish'] and not creating:
-            workflow.doActionFor(content, 'submit')
+            workflow.doActionFor(working_copy, 'submit')
             print "Set workflow state to review."
             if args.workflow == 'publish':
-                workflow.doActionFor(content, 'publish')
+                workflow.doActionFor(working_copy, 'publish')
                 print "Set workflow state to published."
                 policy = ICheckinCheckoutPolicy(working_copy)
                 policy.checkin(change_note)
                 print "Checked in working copy."
 
         if creating and args.workflow in ['review', 'publish']:
-            workflow.doActionFor(content, 'submit')
+            workflow.doActionFor(working_copy, 'submit')
             print "Set workflow state to reviewing."
         if creating and args.workflow == 'publish':
-            workflow.doActionFor(content, 'publish')
+            workflow.doActionFor(working_copy, 'publish')
             print "Set workflow state to published."
-        print 'Updated "{}".'.format(content.Title())
+        print 'Updated "{}".'.format(working_copy.Title())
         print
 
     if args.dry_run:

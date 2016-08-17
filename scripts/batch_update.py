@@ -144,8 +144,6 @@ if __name__ == '__main__':
                     value = None
                 elif modify['mode'] == 'replace':
                     value = modify['values']
-                    if not isinstance(old_value, list):
-                        value = value[0]
                 elif modify['mode'] == 'append':
                     if (not isinstance(old_value, list) and
                         not isinstance(old_value, tuple)):
@@ -159,6 +157,9 @@ if __name__ == '__main__':
                     working_copy.setTitle(value)
                 elif key == 'subject':
                     working_copy.setSubject(value)
+                elif key == 'referenceCitations':
+                    field.resize(len(value), working_copy)
+                    working_copy.setReferenceCitations(value)
                 else:
                     try:
                         field.set(working_copy, value)
@@ -183,6 +184,7 @@ if __name__ == '__main__':
             member = membership.getMemberById(args.owner)
             user = member.getUser()
             working_copy.changeOwnership(user, recursive=False)
+            working_copy.manage_setLocalRoles(args.owner, ["Owner",])
             working_copy.reindexObjectSecurity()
             print "Set owner to {}".format(args.owner)
 

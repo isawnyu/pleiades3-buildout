@@ -30,7 +30,7 @@ Installation
 6. Run "bin/buildout -c devel.cfg"
 7. If you need to create an admin login, do: bin/instance adduser <name> <password>
 6. Start Zope instance in foreground with "bin/instance fg"
-7. Go to http://localhost:9080/manage
+7. Go to http://localhost:9080
 8. Authenticate with an administrative user account
 9. Click Add Plone Site and create a Plone site named `plone`
    including the `Pleiades Site Policy` and `Pleiades Theme` add-ons.

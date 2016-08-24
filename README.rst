@@ -22,11 +22,15 @@ Pleiades package distributions are fetched from http://atlantides.org/eggcarton/
 Installation
 ------------
 
-1. Clone the repo.
-2. Run "virtualenv-2.7 --no-setuptools ." in the repo directory.
-3. Run "bin/python bootstrap.py"
-4. Run "bin/buildout -c devel.cfg"
-5. Start Zope instance in foreground with "bin/instance fg"
-6. Go to http://localhost:9080/manage
-7. Click Add Plone Site and create a Plone site named `plone`
+1. Install prerequisites (TBD: add list, eg libgeos)
+2. Clone the repos
+3. Create a Python 2.7 virtual environment and activate it
+4. In the clone, checkout the jazkarta-plone4 branch
+5. Run "bin/python bootstrap.py"
+6. Run "bin/buildout -c devel.cfg"
+7. If you need to create an admin login, do: bin/instance adduser <name> <password>
+6. Start Zope instance in foreground with "bin/instance fg"
+7. Go to http://localhost:9080/manage
+8. Authenticate with an administrative user account
+9. Click Add Plone Site and create a Plone site named `plone`
    including the `Pleiades Site Policy` and `Pleiades Theme` add-ons.

@@ -32,10 +32,14 @@ if __name__ == '__main__':
             field.get(obj)
             refs = field.getRaw(obj)
             all_refs += len(refs)
+            size = refs['size']
             updated_refs = []
-            for key in refs.keys():
+            keys = sorted([k for k in refs.keys() if k != 'size'])
+            for i, key in enumerate(keys):
                 if key == 'size':
                     continue
+                if i >= size:
+                    break
                 entry = refs[key]
                 updated_refs.append(entry)
                 if entry.get('range'):

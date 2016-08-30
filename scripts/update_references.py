@@ -28,6 +28,8 @@ if __name__ == '__main__':
             field = obj.getField(fname, None)
             if field is None:
                 continue
+            # Fix cache
+            field.get(obj)
             refs = field.getRaw(obj)
             all_refs += len(refs)
             updated_refs = []
@@ -44,10 +46,10 @@ if __name__ == '__main__':
                     entry['formatted_citation'] = getattr(
                         obj, '%s|%s|range' % (fname, key), ''
                     )
-                    print("Updated citation for {} to '{}' using {}".format(
+                    print(u"Updated citation for {} to '{}' using {}".format(
                         '/'.join(obj.getPhysicalPath()),
                         entry['formatted_citation'],
-                        '%s|%s|range' % (fname, key)))
+                        u'%s|%s|range' % (fname, key)))
                     migrated += 1
 
                 identifier = entry.get('identifier', '')

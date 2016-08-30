@@ -28,26 +28,47 @@ if __name__ == '__main__':
             field = obj.getField(fname, None)
             if field is None:
                 continue
-            refs = field.get(obj)
+            # Fix cache
+            field.get(obj)
+            refs = field.getRaw(obj)
             all_refs += len(refs)
-            for entry in refs:
-                set_cite = False
+            size = refs['size']
+            updated_refs = []
+            keys = sorted([k for k in refs.keys() if k != 'size'])
+            for i, key in enumerate(keys):
+                if key == 'size':
+                    continue
+                if i >= size:
+                    break
+                entry = refs[key]
+                updated_refs.append(entry)
                 if entry.get('range'):
                     entry['formatted_citation'] = entry['range']
                     del entry['range']
                     migrated += 1
+                elif not entry.get('formatted_citation'):
+                    entry['formatted_citation'] = getattr(
+                        obj, '%s|%s|range' % (fname, key), ''
+                    )
+                    print(u"Updated citation for {} to '{}' using {}".format(
+                        '/'.join(obj.getPhysicalPath()),
+                        entry['formatted_citation'],
+                        u'%s|%s|range' % (fname, key)))
+                    migrated += 1
 
                 identifier = entry.get('identifier', '')
                 if validation.validate('isURL', identifier) != 1:
+                    entry['identifier'] = identifier.strip()
                     continue
                 if not identifier.strip():
+                    entry['identifier'] = ''
                     continue
-                entry['identifier'] = ' '
 
-                if (entry.get('bibliographic_uri').strip() or
-                        entry.get('access_uri').strip()):
+                if (entry.get('bibliographic_uri', '').strip() or
+                        entry.get('access_uri', '').strip()):
                     migrated += 1
                     continue
+
                 for site_name in BIB_SITES:
                     if site_name in identifier:
                         entry['bibliographic_uri'] = identifier
@@ -55,13 +76,11 @@ if __name__ == '__main__':
                 else:
                     entry['access_uri'] = identifier
 
-                if not set_cite:
-                    migrated += 1
+                entry['identifier'] = ''
+                migrated += 1
 
-            if migrated:
-                field.set(obj, refs)
-        print "Migrated {} references of {} for {}".format(
-            migrated, all_refs, brain.getPath())
+            if migrated and updated_refs:
+                field.set(obj, updated_refs)
         total += 1
         if total % TRANSACTION_COUNT == 0:
             transaction.commit()

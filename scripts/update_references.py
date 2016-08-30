@@ -30,10 +30,12 @@ if __name__ == '__main__':
                 continue
             refs = field.getRaw(obj)
             all_refs += len(refs)
+            updated_refs = []
             for key in refs.keys():
                 if key == 'size':
                     continue
                 entry = refs[key]
+                updated_refs.append(entry)
                 if entry.get('range'):
                     entry['formatted_citation'] = entry['range']
                     del entry['range']
@@ -42,6 +44,10 @@ if __name__ == '__main__':
                     entry['formatted_citation'] = getattr(
                         obj, '%s|%s|range' % (fname, key), ''
                     )
+                    print("Updated citation for {} to '{}' using {}".format(
+                        '/'.join(obj.getPhysicalPath()),
+                        entry['formatted_citation'],
+                        '%s|%s|range' % (fname, key)))
                     migrated += 1
 
                 identifier = entry.get('identifier', '')
@@ -67,8 +73,8 @@ if __name__ == '__main__':
                 entry['identifier'] = ''
                 migrated += 1
 
-            if migrated:
-                field.set(obj, refs)
+            if migrated and updated_refs:
+                field.set(obj, updated_refs)
         total += 1
         if total % TRANSACTION_COUNT == 0:
             transaction.commit()

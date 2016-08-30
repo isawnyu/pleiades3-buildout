@@ -28,26 +28,35 @@ if __name__ == '__main__':
             field = obj.getField(fname, None)
             if field is None:
                 continue
-            refs = field.get(obj)
+            refs = field.getRaw(obj)
             all_refs += len(refs)
-            for entry in refs:
-                set_cite = False
+            for key in refs.keys():
+                if key == 'size':
+                    continue
+                entry = refs[key]
                 if entry.get('range'):
                     entry['formatted_citation'] = entry['range']
                     del entry['range']
                     migrated += 1
+                elif not entry.get('formatted_citation'):
+                    entry['formatted_citation'] = getattr(
+                        obj, '%s|%s|range' % (fname, key), ''
+                    )
+                    migrated += 1
 
                 identifier = entry.get('identifier', '')
                 if validation.validate('isURL', identifier) != 1:
+                    entry['identifier'] = identifier.strip()
                     continue
                 if not identifier.strip():
+                    entry['identifier'] = ''
                     continue
-                entry['identifier'] = ' '
 
-                if (entry.get('bibliographic_uri').strip() or
-                        entry.get('access_uri').strip()):
+                if (entry.get('bibliographic_uri', '').strip() or
+                        entry.get('access_uri', '').strip()):
                     migrated += 1
                     continue
+
                 for site_name in BIB_SITES:
                     if site_name in identifier:
                         entry['bibliographic_uri'] = identifier
@@ -55,13 +64,11 @@ if __name__ == '__main__':
                 else:
                     entry['access_uri'] = identifier
 
-                if not set_cite:
-                    migrated += 1
+                entry['identifier'] = ''
+                migrated += 1
 
             if migrated:
                 field.set(obj, refs)
-        print "Migrated {} references of {} for {}".format(
-            migrated, all_refs, brain.getPath())
         total += 1
         if total % TRANSACTION_COUNT == 0:
             transaction.commit()

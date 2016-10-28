@@ -28,9 +28,9 @@ Installation
 4. In the clone, checkout the jazkarta-plone4 branch
 5. Run "bin/python bootstrap.py"
 6. Run "bin/buildout -c devel.cfg"
-7. An admin user is created by default. If you need to create an additional  login with admin powers, do: bin/instance adduser <name> <password>
-6. Start Zope instance in foreground with "bin/instance fg"
-7. Go to http://localhost:9080
-8. Authenticate with an administrative user account
-9. Click Add Plone Site and create a Plone site named `plone`
-   including the `Pleiades Site Policy` and `Pleiades Theme` add-ons.
+7. An admin user is created by default. If you need to create an additional  login with admin powers, do: ``bin/instance adduser <name> <password>``
+8. Start Zope instance in foreground with "bin/instance fg"
+9. Go to http://localhost:9080
+10. Authenticate with an administrative user account
+11. Click Add Plone Site and create a Plone site named `plone` 
+12. Include the `Pleiades Site Policy` and `Pleiades Theme` add-ons.

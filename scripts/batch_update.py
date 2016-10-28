@@ -161,6 +161,9 @@ if __name__ == '__main__':
                 elif key == 'referenceCitations':
                     field.resize(len(value), working_copy)
                     working_copy.setReferenceCitations(value)
+                elif key == 'attestations':
+                    field.resize(len(value), working_copy)
+                    working_copy.setAttestations(value)
                 else:
                     try:
                         field.set(working_copy, value)

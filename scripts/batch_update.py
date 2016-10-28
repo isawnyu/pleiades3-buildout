@@ -193,17 +193,17 @@ if __name__ == '__main__':
             workflow.doActionFor(working_copy, 'submit')
             print "Set workflow state to review."
             if args.workflow == 'publish':
-                workflow.doActionFor(working_copy, 'publish')
+                workflow.doActionFor(working_copy, 'publish', comment=change_note)
                 print "Set workflow state to published."
                 policy = ICheckinCheckoutPolicy(working_copy)
                 policy.checkin(change_note)
                 print "Checked in working copy."
 
         if creating and args.workflow in ['review', 'publish']:
-            workflow.doActionFor(working_copy, 'submit')
+            workflow.doActionFor(working_copy, 'submit', comment=change_note)
             print "Set workflow state to reviewing."
         if creating and args.workflow == 'publish':
-            workflow.doActionFor(working_copy, 'publish')
+            workflow.doActionFor(working_copy, 'publish', comment=change_note)
             print "Set workflow state to published."
         print 'Updated "{}".'.format(working_copy.Title())
         print

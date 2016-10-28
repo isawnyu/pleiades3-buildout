@@ -14,11 +14,12 @@ from pleiades.dump import getSite, spoofRequest
 
 FIELD_NAMES = {'attested': 'nameAttested',
                'language': 'nameLanguage',
+               'romanized': 'nameTransliterated',
+               'transliterated': 'nameTransliterated',
                'nameType': 'nameType',
                'transcriptionAccuracy': 'accuracy',
                'transcriptionCompleteness': 'completeness',
                'associationCertainty': 'associationCertainty',
-               'details': 'text',
                'featureType': 'featureType',
                'associationCertainty': 'associationCertainty',
                'details': 'text',

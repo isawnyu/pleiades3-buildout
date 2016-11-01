@@ -14,11 +14,12 @@ from pleiades.dump import getSite, spoofRequest
 
 FIELD_NAMES = {'attested': 'nameAttested',
                'language': 'nameLanguage',
+               'romanized': 'nameTransliterated',
+               'transliterated': 'nameTransliterated',
                'nameType': 'nameType',
                'transcriptionAccuracy': 'accuracy',
                'transcriptionCompleteness': 'completeness',
                'associationCertainty': 'associationCertainty',
-               'details': 'text',
                'featureType': 'featureType',
                'associationCertainty': 'associationCertainty',
                'details': 'text',
@@ -160,6 +161,9 @@ if __name__ == '__main__':
                 elif key == 'referenceCitations':
                     field.resize(len(value), working_copy)
                     working_copy.setReferenceCitations(value)
+                elif key == 'attestations':
+                    field.resize(len(value), working_copy)
+                    working_copy.setAttestations(value)
                 else:
                     try:
                         field.set(working_copy, value)
@@ -192,17 +196,17 @@ if __name__ == '__main__':
             workflow.doActionFor(working_copy, 'submit')
             print "Set workflow state to review."
             if args.workflow == 'publish':
-                workflow.doActionFor(working_copy, 'publish')
+                workflow.doActionFor(working_copy, 'publish', comment=change_note)
                 print "Set workflow state to published."
                 policy = ICheckinCheckoutPolicy(working_copy)
                 policy.checkin(change_note)
                 print "Checked in working copy."
 
         if creating and args.workflow in ['review', 'publish']:
-            workflow.doActionFor(working_copy, 'submit')
+            workflow.doActionFor(working_copy, 'submit', comment=change_note)
             print "Set workflow state to reviewing."
         if creating and args.workflow == 'publish':
-            workflow.doActionFor(working_copy, 'publish')
+            workflow.doActionFor(working_copy, 'publish', comment=change_note)
             print "Set workflow state to published."
         print 'Updated "{}".'.format(working_copy.Title())
         print

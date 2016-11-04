@@ -31,6 +31,7 @@ if __name__ == '__main__':
         if total % 100 == 0:
             transaction.commit()
             print "Migrating ... {} connections".format(total)
+            app.p_jar.cacheMinimize()
 
     transaction.commit()
     print "Migrated {} total connections.".format(total)

@@ -15,8 +15,8 @@ if __name__ == '__main__':
 
     total = 0
     for brain in places:
-        refs = brain.connectsWith
-        brefs = brain.hasConnectionsWith
+        refs = brain.connectsWith or []
+        brefs = brain.hasConnectionsWith or []
         for oid in (refs + brefs):
             if len(oid) == 32:
                 break

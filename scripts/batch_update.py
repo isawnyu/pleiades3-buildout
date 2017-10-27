@@ -153,8 +153,10 @@ if __name__ == '__main__':
                     value = list(old_value)
                     value.extend(modify['values'])
                 if key == 'description':
+                    value = ' '.join(value).strip()
                     working_copy.setDescription(value)
                 elif key == 'title':
+                    value = ' '.join(value).strip()
                     working_copy.setTitle(value)
                 elif key == 'subject':
                     working_copy.setSubject(value)

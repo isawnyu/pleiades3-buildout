@@ -13,3 +13,4 @@ parts
 src
 var
 local
+build

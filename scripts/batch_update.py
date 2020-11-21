@@ -215,6 +215,7 @@ if __name__ == '__main__':
         if creating and args.workflow == 'publish':
             workflow.doActionFor(working_copy, 'publish', comment=change_note)
             print "Set workflow state to published."
+        working_copy.reindexObject()
         print 'Updated "{}".'.format(working_copy.Title())
         print
 

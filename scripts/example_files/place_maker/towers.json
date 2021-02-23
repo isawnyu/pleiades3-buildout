@@ -1,0 +1,1949 @@
+[{
+        "title": "Tower 2",
+        "description": "Rectangular defensive tower located on the northern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [{
+            "nameLanguage": "en",
+            "nameTransliterated": "Tower of the Archers",
+            "nameAttested": "Tower of the Archers",
+            "nameType": "geographic",
+            "attestations": [{
+                    "timePeriod": "twentieth-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "twenty-first-ce",
+                    "confidence": "confident"
+                }
+            ]
+        }],
+        "locations": [{
+            "title": "Plan location of Tower 2",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.726330093033006,
+                            34.75113515520099
+                        ],
+                        [
+                            40.72634401199203,
+                            34.75102599173542
+                        ],
+                        [
+                            40.72652877960364,
+                            34.75104701520078
+                        ],
+                        [
+                            40.72651357299334,
+                            34.75115414098001
+                        ],
+                        [
+                            40.726330093033006,
+                            34.75113515520099
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 3",
+        "description": "Rectangular defensive tower located on the northern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 3",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72689788728629,
+                            34.751149633693664
+                        ],
+                        [
+                            40.72690522488061,
+                            34.75109657161051
+                        ],
+                        [
+                            40.72705251482638,
+                            34.751115386762166
+                        ],
+                        [
+                            40.727048292197516,
+                            34.75115586198019
+                        ],
+                        [
+                            40.72689788728629,
+                            34.751149633693664
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 4",
+        "description": "Rectangular defensive tower located on the northern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 4",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72799424372184,
+                            34.751499208959004
+                        ],
+                        [
+                            40.7280788627107,
+                            34.75175164877673
+                        ],
+                        [
+                            40.72799810004285,
+                            34.751765337797664
+                        ],
+                        [
+                            40.727921776117235,
+                            34.75150581203316
+                        ],
+                        [
+                            40.72799424372184,
+                            34.751499208959004
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 5",
+        "description": "Rectangular defensive tower located on the northern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 5",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.728501520440716,
+                            34.75258740187209
+                        ],
+                        [
+                            40.72858044682744,
+                            34.75264760101878
+                        ],
+                        [
+                            40.72850733562023,
+                            34.752704384306924
+                        ],
+                        [
+                            40.728438682507246,
+                            34.75265100741487
+                        ],
+                        [
+                            40.728501520440716,
+                            34.75258740187209
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 5a",
+        "description": "Rectangular defensive tower located on the northeastern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "citation_detail": "p. 232-236",
+            "formatted_citation": "James, Simon. The Roman Military Base at Dura-Europos, Syria: An Archaeological Visualization. Oxford, New York: Oxford University Press, 2019.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/UM57GCTF",
+            "access_uri": "http://www.worldcat.org/oclc/1084757192",
+            "identifier": "978-0-19-874356-9",
+            "short_title": "James 2019"
+        }]
+    },
+    {
+        "title": "Tower 6",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 6",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.73366285771898,
+                            34.74584315086184
+                        ],
+                        [
+                            40.733620734723566,
+                            34.74588583149307
+                        ],
+                        [
+                            40.73354362705911,
+                            34.745855368748664
+                        ],
+                        [
+                            40.73358860574546,
+                            34.74579686716534
+                        ],
+                        [
+                            40.73366285771898,
+                            34.74584315086184
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 7",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 7",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.73307669655298,
+                            34.7451624218737
+                        ],
+                        [
+                            40.733021337717425,
+                            34.7451053486692
+                        ],
+                        [
+                            40.73309528634641,
+                            34.74506090020502
+                        ],
+                        [
+                            40.73315072759723,
+                            34.74512191728285
+                        ],
+                        [
+                            40.73307669655298,
+                            34.7451624218737
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 8",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 8",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.732443103246595,
+                            34.74449044756841
+                        ],
+                        [
+                            40.73229801502142,
+                            34.74446132091002
+                        ],
+                        [
+                            40.73232253543805,
+                            34.74435822520883
+                        ],
+                        [
+                            40.73246965407137,
+                            34.74437814912635
+                        ],
+                        [
+                            40.732443103246595,
+                            34.74449044756841
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 9",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 9",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.731510286508055,
+                            34.743887235745916
+                        ],
+                        [
+                            40.73154162717978,
+                            34.74379138225093
+                        ],
+                        [
+                            40.73168238467156,
+                            34.743826075725934
+                        ],
+                        [
+                            40.731635604345065,
+                            34.74392765313462
+                        ],
+                        [
+                            40.731510286508055,
+                            34.743887235745916
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 10",
+        "description": "Defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 10",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.73084438519672,
+                            34.74393156426304
+                        ],
+                        [
+                            40.73065795869331,
+                            34.74394522286946
+                        ],
+                        [
+                            40.73065489478903,
+                            34.74390490157747
+                        ],
+                        [
+                            40.73072983378969,
+                            34.74387448012338
+                        ],
+                        [
+                            40.73083668567299,
+                            34.743882135047144
+                        ],
+                        [
+                            40.73084438519672,
+                            34.74393156426304
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 11",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 11",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.729796660661364,
+                            34.744106078364545
+                        ],
+                        [
+                            40.72975811611281,
+                            34.74417634706062
+                        ],
+                        [
+                            40.72965758603889,
+                            34.74415208849507
+                        ],
+                        [
+                            40.72968938787337,
+                            34.74407824608554
+                        ],
+                        [
+                            40.7297499582735,
+                            34.74410490708942
+                        ],
+                        [
+                            40.729796660661364,
+                            34.744106078364545
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 12",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 12",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72908655795309,
+                            34.74384278455818
+                        ],
+                        [
+                            40.72905081327747,
+                            34.74383411833565
+                        ],
+                        [
+                            40.728974038770666,
+                            34.7437764960531
+                        ],
+                        [
+                            40.72897737438602,
+                            34.74372324046749
+                        ],
+                        [
+                            40.7290976349945,
+                            34.74373437604987
+                        ],
+                        [
+                            40.72908655795309,
+                            34.74384278455818
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 13",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 13",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72861555540767,
+                            34.74374672548435
+                        ],
+                        [
+                            40.72861241065252,
+                            34.743809152185236
+                        ],
+                        [
+                            40.72850348975351,
+                            34.74380886374063
+                        ],
+                        [
+                            40.7285020375384,
+                            34.74373916323583
+                        ],
+                        [
+                            40.72861555540767,
+                            34.74374672548435
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 14",
+        "description": "Rectangular defensive tower located on the southern end of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 14",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72836722020718,
+                            34.743777743046316
+                        ],
+                        [
+                            40.72837161028567,
+                            34.74386847398155
+                        ],
+                        [
+                            40.72832664476935,
+                            34.74392998501775
+                        ],
+                        [
+                            40.728075402738696,
+                            34.74386958312772
+                        ],
+                        [
+                            40.728152347763306,
+                            34.743663174467784
+                        ],
+                        [
+                            40.728315476317576,
+                            34.74369387474237
+                        ],
+                        [
+                            40.72831864152894,
+                            34.7437258138008
+                        ],
+                        [
+                            40.72832072909837,
+                            34.74376602208812
+                        ],
+                        [
+                            40.72836722020718,
+                            34.743777743046316
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 15",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 15",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.7281685515684,
+                            34.744381036579234
+                        ],
+                        [
+                            40.72812560868719,
+                            34.74447966152705
+                        ],
+                        [
+                            40.72810171668274,
+                            34.7444727784411
+                        ],
+                        [
+                            40.72808648224405,
+                            34.74452148651308
+                        ],
+                        [
+                            40.72797217083487,
+                            34.74449422011928
+                        ],
+                        [
+                            40.72792061668583,
+                            34.744479475645086
+                        ],
+                        [
+                            40.72800141868628,
+                            34.744278171055676
+                        ],
+                        [
+                            40.72816357817899,
+                            34.74432229790575
+                        ],
+                        [
+                            40.728138347348754,
+                            34.744371147868726
+                        ],
+                        [
+                            40.7281685515684,
+                            34.744381036579234
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 16",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 16",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.727857447958385,
+                            34.745047314031844
+                        ],
+                        [
+                            40.72783967118305,
+                            34.74509399466856
+                        ],
+                        [
+                            40.72773289941417,
+                            34.74506868455027
+                        ],
+                        [
+                            40.727683801114104,
+                            34.74505184164992
+                        ],
+                        [
+                            40.727762233955836,
+                            34.744856761285746
+                        ],
+                        [
+                            40.72781749404502,
+                            34.74486938974976
+                        ],
+                        [
+                            40.72792678619011,
+                            34.74489569577102
+                        ],
+                        [
+                            40.72790310539335,
+                            34.74495896806816
+                        ],
+                        [
+                            40.727920749696814,
+                            34.744965939856485
+                        ],
+                        [
+                            40.7278813615956,
+                            34.74505522859737
+                        ],
+                        [
+                            40.727857447958385,
+                            34.745047314031844
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 17",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 17",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            658142.461763031,
+                            3846195.1676280797
+                        ],
+                        [
+                            658141.0886057165,
+                            3846200.660257338
+                        ],
+                        [
+                            658130.7899258571,
+                            3846197.799512933
+                        ],
+                        [
+                            658125.983875256,
+                            3846196.08306629
+                        ],
+                        [
+                            658133.6506702625,
+                            3846174.455838585
+                        ],
+                        [
+                            658148.0688220655,
+                            3846178.8041700814
+                        ],
+                        [
+                            658146.237945646,
+                            3846184.983377997
+                        ],
+                        [
+                            658147.7255327369,
+                            3846185.669956654
+                        ],
+                        [
+                            658144.5214990028,
+                            3846195.968636513
+                        ],
+                        [
+                            658142.461763031,
+                            3846195.1676280797
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 18",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 18",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.7269093115502,
+                            34.74713684329868
+                        ],
+                        [
+                            40.726887709862154,
+                            34.7471908677202
+                        ],
+                        [
+                            40.72678057739368,
+                            34.74715572251352
+                        ],
+                        [
+                            40.72672128691348,
+                            34.74713609938917
+                        ],
+                        [
+                            40.72682952275684,
+                            34.74692651352573
+                        ],
+                        [
+                            40.72698955386795,
+                            34.746971993041974
+                        ],
+                        [
+                            40.7269620576952,
+                            34.74704059642773
+                        ],
+                        [
+                            40.72698500804691,
+                            34.74705135556547
+                        ],
+                        [
+                            40.72693117597156,
+                            34.747145059847355
+                        ],
+                        [
+                            40.7269093115502,
+                            34.74713684329868
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 19",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 19",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.726612478822155,
+                            34.747743593419244
+                        ],
+                        [
+                            40.726585288262264,
+                            34.74780627589555
+                        ],
+                        [
+                            40.72647592317851,
+                            34.7477690501531
+                        ],
+                        [
+                            40.72641463686602,
+                            34.74774767031403
+                        ],
+                        [
+                            40.726528905034385,
+                            34.74753945316236
+                        ],
+                        [
+                            40.72668875080866,
+                            34.74759694047252
+                        ],
+                        [
+                            40.726659158006434,
+                            34.74765520725692
+                        ],
+                        [
+                            40.72668471071862,
+                            34.74766183737632
+                        ],
+                        [
+                            40.72663501803579,
+                            34.74775344469651
+                        ],
+                        [
+                            40.726612478822155,
+                            34.747743593419244
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 20",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 20",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            658017.9273955441,
+                            3846494.877054583
+                        ],
+                        [
+                            658015.6007919407,
+                            3846501.574852835
+                        ],
+                        [
+                            658005.5893461324,
+                            3846497.274161326
+                        ],
+                        [
+                            657999.8785918333,
+                            3846494.8065514434
+                        ],
+                        [
+                            658010.8770815945,
+                            3846470.976490294
+                        ],
+                        [
+                            658025.612237749,
+                            3846477.3217728487
+                        ],
+                        [
+                            658022.7216090298,
+                            3846484.1605773796
+                        ],
+                        [
+                            658024.5546906566,
+                            3846485.077118193
+                        ],
+                        [
+                            658019.9719865895,
+                            3846495.7935953964
+                        ],
+                        [
+                            658017.9273955441,
+                            3846494.877054583
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 21",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 21",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.726010399830756,
+                            34.74897327624898
+                        ],
+                        [
+                            40.72598249141429,
+                            34.74903851149859
+                        ],
+                        [
+                            40.72587223599348,
+                            34.74899557672148
+                        ],
+                        [
+                            40.725814785319045,
+                            34.74897350654064
+                        ],
+                        [
+                            40.72592519372198,
+                            34.748764708975244
+                        ],
+                        [
+                            40.72608435093201,
+                            34.74882602089458
+                        ],
+                        [
+                            40.726056881936756,
+                            34.748875357871796
+                        ],
+                        [
+                            40.726081014154005,
+                            34.748887729391626
+                        ],
+                        [
+                            40.7260329393183,
+                            34.74898312762809
+                        ],
+                        [
+                            40.726010399830756,
+                            34.74897327624898
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 22",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 22",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.725712170651285,
+                            34.74957798739476
+                        ],
+                        [
+                            40.72568589465415,
+                            34.74963437098784
+                        ],
+                        [
+                            40.72551921667655,
+                            34.74957568754075
+                        ],
+                        [
+                            40.725623437733,
+                            34.74938100338579
+                        ],
+                        [
+                            40.72578102075859,
+                            34.749442332972556
+                        ],
+                        [
+                            40.725758124110264,
+                            34.74947790049983
+                        ],
+                        [
+                            40.72578510391186,
+                            34.74949199285567
+                        ],
+                        [
+                            40.72573444607513,
+                            34.74958585305544
+                        ],
+                        [
+                            40.725712170651285,
+                            34.74957798739476
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 23",
+        "description": "Rectangular defensive tower externally added to the western defensive circuit wall around the city of Dura-Europos and intended to cover a junction between stone and mudbrick curtain wall near the city's northwest corner.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 23",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72539325928025,
+                            34.74991309645933
+                        ],
+                        [
+                            40.72535863623493,
+                            34.74989731097417
+                        ],
+                        [
+                            40.72546413772085,
+                            34.74969342538446
+                        ],
+                        [
+                            40.725520203217634,
+                            34.74970961460096
+                        ],
+                        [
+                            40.72561625519704,
+                            34.749752128078036
+                        ],
+                        [
+                            40.72552195538353,
+                            34.74995868566859
+                        ],
+                        [
+                            40.72539325928025,
+                            34.74991309645933
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 24",
+        "description": "Rectangular defensive tower located on the western side of the defensive circuit walls around the city of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 24",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72535177115445,
+                            34.749997634390176
+                        ],
+                        [
+                            40.725441758542146,
+                            34.75004994832154
+                        ],
+                        [
+                            40.7254801672496,
+                            34.750071664115296
+                        ],
+                        [
+                            40.725478731853215,
+                            34.75014670936978
+                        ],
+                        [
+                            40.72549379619093,
+                            34.75015061811588
+                        ],
+                        [
+                            40.72549332916118,
+                            34.75017618267146
+                        ],
+                        [
+                            40.72547740341626,
+                            34.750178881730285
+                        ],
+                        [
+                            40.725367521832254,
+                            34.75022660816405
+                        ],
+                        [
+                            40.725278562960405,
+                            34.75022374658191
+                        ],
+                        [
+                            40.725297796835406,
+                            34.749995925927884
+                        ],
+                        [
+                            40.72535177115445,
+                            34.749997634390176
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 25",
+        "description": "Rectangular defensive tower externally added to the western defensive circuit wall around the city of Dura-Europos and intended to add additional protection in a section of mudbrick curtain wall on the city's northwest corner.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 25",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72536810195674,
+                            34.75027848305626
+                        ],
+                        [
+                            40.72547906591728,
+                            34.750270795809065
+                        ],
+                        [
+                            40.725504055702324,
+                            34.75046305302028
+                        ],
+                        [
+                            40.72539802888368,
+                            34.750470670324944
+                        ],
+                        [
+                            40.725338801334495,
+                            34.750472528790866
+                        ],
+                        [
+                            40.725325005813446,
+                            34.75028418933431
+                        ],
+                        [
+                            40.72536810195674,
+                            34.75027848305626
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Tower 26",
+        "description": "Rectangular defensive tower externally added to the western defensive circuit wall around the city of Dura-Europos and intended to add additional protection in a section of mudbrick curtain wall on the city's northwest corner.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "tower-wall",
+        "names": [],
+        "locations": [{
+            "title": "Plan location of Tower 26",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.72550670203568,
+                            34.750701317273084
+                        ],
+                        [
+                            40.72536704195866,
+                            34.75070329658537
+                        ],
+                        [
+                            40.72535945176585,
+                            34.75052368524666
+                        ],
+                        [
+                            40.72549814837026,
+                            34.75052171960282
+                        ],
+                        [
+                            40.72550670203568,
+                            34.750701317273084
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "tower-wall"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+            "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+            "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+            "access_uri": "http://www.worldcat.org/oclc/1034731631",
+            "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+            "short_title": "Baird 2018",
+            "citation_detail": "p. 20"
+        }]
+    },
+    {
+        "title": "Palmyrene Gate",
+        "description": "Main entrance gate in the western city walls of Dura-Europos.  Built ca. 150 BCE, the city's fortifications were breached in 256 CE and went out of use thereafter.",
+        "placeType": "city-gate",
+        "names": [{
+            "nameLanguage": "en",
+            "nameTransliterated": "porta praetoriana",
+            "nameAttested": "porta praetoriana",
+            "nameType": "geographic",
+            "attestations": [{
+                    "timePeriod": "twentieth-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "twenty-first-ce",
+                    "confidence": "confident"
+                }
+            ]
+        }],
+        "locations": [{
+            "title": "Plan location of Palmyrene Gate ",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            40.727365543541794,
+                            34.74628101905385
+                        ],
+                        [
+                            40.72726812617011,
+                            34.746468681044
+                        ],
+                        [
+                            40.7270454567936,
+                            34.746392005509634
+                        ],
+                        [
+                            40.72716129184805,
+                            34.74620408242293
+                        ],
+                        [
+                            40.727365543541794,
+                            34.74628101905385
+                        ]
+                    ]
+                ]
+            },
+            "archaeologicalRemains": "substantive",
+            "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+            "attestations": [{
+                    "timePeriod": "first-bce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "first-ce",
+                    "confidence": "confident"
+                },
+                {
+                    "timePeriod": "second-ce",
+                    "confidence": "confident"
+                }
+            ],
+            "featureType": "city-gate"
+        }],
+        "connections": [{
+            "connection": "City wall of Dura-Europos",
+            "relationshipType": "part_of_physical"
+        }],
+        "references": [{
+                "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+                "access_uri": "http://www.worldcat.org/oclc/1034731631",
+                "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+                "short_title": "Baird 2018",
+                "citation_detail": "p. 20"
+            },
+            {
+                "citation_detail": "p. 232-236",
+                "formatted_citation": "James, Simon. The Roman Military Base at Dura-Europos, Syria: An Archaeological Visualization. Oxford, New York: Oxford University Press, 2019.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/UM57GCTF",
+                "access_uri": "http://www.worldcat.org/oclc/1084757192",
+                "identifier": "978-0-19-874356-9",
+                "short_title": "James 2019"
+            }
+        ]
+    }
+]

@@ -1,0 +1,450 @@
+[
+    {
+        "title": "Block L7",
+        "description": "City block of Dura-Europos labeled according to modern excavators' scheme.",
+        "placeType": "city-block",
+        "names": [],
+        "locations": [
+            {
+                "title": "Plan location of Block L7",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                40.727039274794656,
+                                34.74784528374879
+                            ],
+                            [
+                                40.72667435009896,
+                                34.747702794346004
+                            ],
+                            [
+                                40.7269876704624,
+                                34.74706346597567
+                            ],
+                            [
+                                40.72738968133842,
+                                34.74722279901064
+                            ],
+                            [
+                                40.727039274794656,
+                                34.74784528374879
+                            ]
+                        ]
+                    ]
+                },
+                "archaeologicalRemains": "substantive",
+                "accuracy": "/features/metadata/dura-europos-walls-and-towers-baird-chen",
+                "attestations": [
+                    {
+                        "timePeriod": "first-bce",
+                        "confidence": "confident"
+                    },
+                    {
+                        "timePeriod": "first-ce",
+                        "confidence": "confident"
+                    },
+                    {
+                        "timePeriod": "second-ce",
+                        "confidence": "confident"
+                    }
+                ],
+                "featureType": "city-block"
+            }
+        ],
+        "connections": [],
+        "references": [
+            {
+                "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+                "access_uri": "http://www.worldcat.org/oclc/1034731631",
+                "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+                "short_title": "Baird 2018",
+                "citation_detail": "p. 32-33, 108"
+            },
+            {
+                "citation_detail": "p. xxxix",
+                "formatted_citation": "James, Simon. The Roman Military Base at Dura-Europos, Syria: An Archaeological Visualization. Oxford, New York: Oxford University Press, 2019.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/UM57GCTF",
+                "access_uri": "http://www.worldcat.org/oclc/1084757192",
+                "identifier": "978-0-19-874356-9",
+                "short_title": "James 2019"
+            }
+        ]
+    },
+    {
+        "title": "Building (house?) preceding Synagogue phase 1",
+        "description": "Traces of preceding building of uncertain type (house?) detected below the synagogue levels in Block L7.",
+        "placeType": "building",
+        "names": [],
+        "locations": [],
+        "connections": [
+            {
+                "connection": "Block L7",
+                "relationshipType": "part_of_physical"
+            }
+        ],
+        "references": [
+            {
+                "formatted_citation": "Rostovtzeff, M.I., Bellinger, L., Hopkins, C., and Welles, C.B., eds. The Excavations at Dura-Europos,Conducted by Yale University and the French Academy of Inscriptions and Letters; Preliminary Report of Sixth Season of Work, October 1932 – March 1933. New Haven: Yale University Press, 1936.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/UC843X84",
+                "access_uri": "http://hdl.handle.net/2027/mdp.39015016894068",
+                "short_title": "Rostovtzeff 1936",
+                "citation_detail": "p. 309-396"
+            }
+        ]
+    },
+    {
+        "title": "House L7-H",
+        "description": "Private house later adapted and integrated into syangogue phase 2.",
+        "placeType": "townhouse",
+        "names": [],
+        "locations": [
+            {
+                "title": "Total station location of House L7-H ",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                40.72699064965933,
+                                34.74755332910165
+                            ],
+                            [
+                                40.72699993673787,
+                                34.7475326706556
+                            ],
+                            [
+                                40.72701959873884,
+                                34.747491741225986
+                            ],
+                            [
+                                40.727016507376234,
+                                34.747490644054594
+                            ],
+                            [
+                                40.72704389561744,
+                                34.74743123629129
+                            ],
+                            [
+                                40.72706079914108,
+                                34.74740383767481
+                            ],
+                            [
+                                40.72709021435498,
+                                34.747358964483126
+                            ],
+                            [
+                                40.727225775604516,
+                                34.7474119723178
+                            ],
+                            [
+                                40.72723171525487,
+                                34.747420015584865
+                            ],
+                            [
+                                40.72723559493549,
+                                34.74742696703688
+                            ],
+                            [
+                                40.727265728114354,
+                                34.74743915123171
+                            ],
+                            [
+                                40.727151721362794,
+                                34.74764398737785
+                            ],
+                            [
+                                40.72713958137436,
+                                34.747638391432346
+                            ],
+                            [
+                                40.72699015301195,
+                                34.747578672777195
+                            ],
+                            [
+                                40.726980201453635,
+                                34.747574560848456
+                            ],
+                            [
+                                40.72699064965933,
+                                34.74755332910165
+                            ]
+                        ]
+                    ]
+                },
+                "archaeologicalRemains": "substantive",
+                "accuracy": "/features/metadata/dura-europos-block-l7-chen",
+                "attestations": [
+                    {
+                        "timePeriod": "third-ce",
+                        "confidence": "confident"
+                    }
+                ],
+                "featureType": "townhouse"
+            }
+        ],
+        "connections": [
+            {
+                "connection": "Block L7",
+                "relationshipType": "part_of_physical"
+            }
+        ],
+        "references": [
+            {
+                "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+                "access_uri": "http://www.worldcat.org/oclc/1034731631",
+                "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+                "short_title": "Baird 2018",
+                "citation_detail": "p. 32-33, 108"
+            },
+            {
+                "formatted_citation": "Baird, J. A. “The Inner Lives of Ancient Houses: An Archaeology of Dura-Europos.” In Everyday Life in Roman Dura-Europos: Household Activities. Oxford University Press, 2012.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/JT7TZ582",
+                "access_uri": "https://doi.org/10.1093/acprof:osobl/9780199687657.003.0004",
+                "identifier": "978-0-19-180482-3",
+                "short_title": "Baird 2012",
+                "citation_detail": "Appendix"
+            },
+            {
+                "formatted_citation": "Rostovtzeff, M.I., Bellinger, L., Hopkins, C., and Welles, C.B., eds. The Excavations at Dura-Europos,Conducted by Yale University and the French Academy of Inscriptions and Letters; Preliminary Report of Sixth Season of Work, October 1932 – March 1933. New Haven: Yale University Press, 1936.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/UC843X84",
+                "access_uri": "http://hdl.handle.net/2027/mdp.39015016894068",
+                "short_title": "Rostovtzeff 1936",
+                "citation_detail": "p. 309-396"
+            },
+            {
+                "formatted_citation": "Kraeling, Carl Hermann. The Synagogue. The Excavations at Dura-Europos Final Report, 8 part 1. New Haven: Yale University Press, 1956.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/RW89HS3Z",
+                "access_uri": "http://www.worldcat.org/oclc/491461650",
+                "short_title": "Kraeling 1956"
+            }
+        ]
+    },
+    {
+        "title": "Synagogue phase 1",
+        "description": "Synagogue adapted from a private house building in Dura-Europos.",
+        "placeType": "synagogue",
+        "names": [],
+        "locations": [
+            {
+                "title": "Total station location of Synagogue phase 1",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                40.72677786562471,
+                                34.74749423086063
+                            ],
+                            [
+                                40.72683842167062,
+                                34.74737233894026
+                            ],
+                            [
+                                40.72690698477375,
+                                34.74739041553843
+                            ],
+                            [
+                                40.72704389561744,
+                                34.74743123629129
+                            ],
+                            [
+                                40.72704144521817,
+                                34.7474396077662
+                            ],
+                            [
+                                40.727016507376234,
+                                34.747490644054594
+                            ],
+                            [
+                                40.72701959873884,
+                                34.747491741225986
+                            ],
+                            [
+                                40.72699896947367,
+                                34.74753468416131
+                            ],
+                            [
+                                40.726986177768275,
+                                34.74756241641059
+                            ],
+                            [
+                                40.72677786562471,
+                                34.74749423086063
+                            ]
+                        ]
+                    ]
+                },
+                "archaeologicalRemains": "substantive",
+                "accuracy": "/features/metadata/dura-europos-block-l7-chen",
+                "attestations": [
+                    {
+                        "timePeriod": "second-ce",
+                        "confidence": "confident"
+                    }
+                ],
+                "featureType": "synagogue"
+            }
+        ],
+        "connections": [
+            {
+                "connection": "Block L7",
+                "relationshipType": "part_of_physical"
+            },
+            {
+                "connection": "Building (house?) preceding Synagogue phase 1",
+                "relationshipType": "succeeds"
+            },
+            {
+                "connection": "House L7-H",
+                "relationshipType": "abuts"
+            }
+        ],
+        "references": [
+            {
+                "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+                "access_uri": "http://www.worldcat.org/oclc/1034731631",
+                "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+                "short_title": "Baird 2018",
+                "citation_detail": "p. 32-33, 108"
+            },
+            {
+                "formatted_citation": "Kraeling, Carl Hermann. The Synagogue. The Excavations at Dura-Europos Final Report, 8 part 1. New Haven: Yale University Press, 1956.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/RW89HS3Z",
+                "access_uri": "http://www.worldcat.org/oclc/491461650",
+                "short_title": "Kraeling 1956"
+            },
+            {
+                "formatted_citation": "Rostovtzeff, M.I., Bellinger, L., Hopkins, C., and Welles, C.B., eds. The Excavations at Dura-Europos,Conducted by Yale University and the French Academy of Inscriptions and Letters; Preliminary Report of Sixth Season of Work, October 1932 – March 1933. New Haven: Yale University Press, 1936.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/UC843X84",
+                "access_uri": "http://hdl.handle.net/2027/mdp.39015016894068",
+                "short_title": "Rostovtzeff 1936",
+                "citation_detail": "p. 309-396"
+            }
+        ]
+    },
+    {
+        "title": "Synagogue phase 2",
+        "description": "Renovation of the synagogue at Dura-Europos c. 244 CE.",
+        "placeType": "synagogue",
+        "names": [],
+        "locations": [
+            {
+                "title": "Total station location of Synagogue phase 2",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                40.72677786562471,
+                                34.74749423086063
+                            ],
+                            [
+                                40.72683842167062,
+                                34.74737233894026
+                            ],
+                            [
+                                40.72690698477375,
+                                34.74739041553843
+                            ],
+                            [
+                                40.72704389561744,
+                                34.74743123629129
+                            ],
+                            [
+                                40.72709021435498,
+                                34.747358964483126
+                            ],
+                            [
+                                40.727225775604516,
+                                34.7474119723178
+                            ],
+                            [
+                                40.72723171525487,
+                                34.747420015584865
+                            ],
+                            [
+                                40.727235546252885,
+                                34.74742696772753
+                            ],
+                            [
+                                40.727265679431746,
+                                34.74743915192236
+                            ],
+                            [
+                                40.727265728114354,
+                                34.74743915123171
+                            ],
+                            [
+                                40.72715098350703,
+                                34.74764256088785
+                            ],
+                            [
+                                40.726980201453635,
+                                34.747574560848456
+                            ],
+                            [
+                                40.726986177768275,
+                                34.74756241641059
+                            ],
+                            [
+                                40.72677786562471,
+                                34.74749423086063
+                            ]
+                        ]
+                    ]
+                },
+                "archaeologicalRemains": "substantive",
+                "accuracy": "/features/metadata/dura-europos-block-l7-chen",
+                "attestations": [
+                    {
+                        "timePeriod": "third-ce",
+                        "confidence": "confident"
+                    }
+                ],
+                "featureType": "synagogue"
+            }
+        ],
+        "connections": [
+            {
+                "connection": "Block L7",
+                "relationshipType": "part_of_physical"
+            },
+            {
+                "connection": "Synagogue phase 1",
+                "relationshipType": "succeeds"
+            },
+            {
+                "connection": "House L7-H",
+                "relationshipType": "succeeds"
+            }
+        ],
+        "references": [
+            {
+                "formatted_citation": "Baird, Jennifer A. Dura-Europos. London: Bloomsbury, 2018.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/QL32DCUE",
+                "access_uri": "http://www.worldcat.org/oclc/1034731631",
+                "identifier": "978-1-4725-2365-5; 978-1-4725-2673-1",
+                "short_title": "Baird 2018",
+                "citation_detail": "p. 32-33, 108"
+            },
+            {
+                "formatted_citation": "Kraeling, Carl Hermann. The Synagogue. The Excavations at Dura-Europos Final Report, 8 part 1. New Haven: Yale University Press, 1956.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/RW89HS3Z",
+                "access_uri": "http://www.worldcat.org/oclc/491461650",
+                "short_title": "Kraeling 1956"
+            },
+            {
+                "formatted_citation": "Rostovtzeff, M.I., Bellinger, L., Hopkins, C., and Welles, C.B., eds. The Excavations at Dura-Europos,Conducted by Yale University and the French Academy of Inscriptions and Letters; Preliminary Report of Sixth Season of Work, October 1932 – March 1933. New Haven: Yale University Press, 1936.",
+                "bibliographic_uri": "https://www.zotero.org/groups/2533/items/UC843X84",
+                "access_uri": "http://hdl.handle.net/2027/mdp.39015016894068",
+                "short_title": "Rostovtzeff 1936",
+                "citation_detail": "p. 309-396"
+            }
+        ]
+    }
+]

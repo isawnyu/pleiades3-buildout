@@ -148,14 +148,26 @@ if __name__ == '__main__':
                         dest='message', help='Commit message.')
     parser.add_argument('--owner', default='admin',
                         dest='owner', help='Content owner. Defaults to "admin"')
-    parser.add_argument('--groups', nargs='+', default=[],
-                        dest='groups', help='Group names. Separated by spaces.')
-    parser.add_argument('--creators', nargs='+', default=[],
-                        dest='creators', help='Creators. Separated by spaces.')
-    parser.add_argument('--contributors', default=[],
-                        dest='contributors', nargs='+', help='Contributors. Separated by spaces.')
-    parser.add_argument('--tags', default=[], dest='subjects', nargs='+',
-                        help='Tags (subjects). Separated by spaces.')
+    parser.add_argument('--groups',
+                        default=[],
+                        dest='groups', 
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Group names. Separated by spaces or commas.')
+    parser.add_argument('--creators', 
+                        default=[],
+                        dest='creators',
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Creators. Separated by spaces or commas.')
+    parser.add_argument('--contributors', 
+                        default=[],
+                        dest='contributors', 
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Contributors. Separated by spaces or commas.')
+    parser.add_argument('--tags',
+                        default=[], 
+                        dest='subjects',
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Tags (subjects). Separated by spaces or commas.')
     parser.add_argument('file', type=file, help='Path to JSON import file')
     parser.add_argument('-c', help='Optional Zope configuration file.')
     try:

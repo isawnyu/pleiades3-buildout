@@ -14,6 +14,7 @@ import re
 import string
 import sys
 import transaction
+from zExceptions import BadRequest
 
 
 RX_SPACE = re.compile(r'[^\w\s]')
@@ -51,20 +52,35 @@ def populate_names(place_data, plone_context, args):
             populate_field(name_obj, k, v)
         set_attribution(name_obj, args)
 
-
-def populate_locations(place_data, plone_context, args):
-    dflt = ['title', 'geometry']
-    for location in place_data['locations']:
-        new_id = make_name_id(location['title'])
+def make_location(location_data, plone_context, new_id):
+    try:
         plone_context.invokeFactory(
             'Location',
             id=new_id,
-            title=location['title'],
-            geometry=json.dumps(location['geometry'])
+            title=location_data['title'],
+            geometry=json.dumps(location_data['geometry'])
         )
-        location_obj = plone_context[new_id]
+    except BadRequest:
+        return None
+    else:
+        return plone_context[new_id]
+
+def populate_locations(place_data, plone_context, args):
+    i = 0
+    for location in place_data['locations']:
+        i += 1
+        try:
+            new_id = location['id']
+        except KeyError:
+            new_id = make_name_id(location['title'])
+        location_obj = make_location(location, plone_context, new_id)
+        if location_obj is None:
+            new_id = '-'.join((new_id, str(i)))
+            location_obj = make_location(location, plone_context, new_id)
+        if location_obj is None:
+            raise BadRequest('The id "{}" is invalid - it is already in use.'.format(new_id))
         for k, v in location.items():
-            if k in ['title', 'geometry']:
+            if k in ['title', 'geometry', 'id']:
                 continue
             elif k == 'accuracy':
                 val = v
@@ -75,7 +91,6 @@ def populate_locations(place_data, plone_context, args):
             else:
                 populate_field(location_obj, k, v)
         set_attribution(location_obj, args)
-
 
 def populate_field(content, k, v):
     if k == 'references':
@@ -133,14 +148,26 @@ if __name__ == '__main__':
                         dest='message', help='Commit message.')
     parser.add_argument('--owner', default='admin',
                         dest='owner', help='Content owner. Defaults to "admin"')
-    parser.add_argument('--groups', nargs='+', default=[],
-                        dest='groups', help='Group names. Separated by spaces.')
-    parser.add_argument('--creators', nargs='+', default=[],
-                        dest='creators', help='Creators. Separated by spaces.')
-    parser.add_argument('--contributors', default=[],
-                        dest='contributors', nargs='+', help='Contributors. Separated by spaces.')
-    parser.add_argument('--tags', default=[], dest='subjects', nargs='+',
-                        help='Tags (subjects). Separated by spaces.')
+    parser.add_argument('--groups',
+                        default=[],
+                        dest='groups', 
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Group names. Separated by spaces or commas.')
+    parser.add_argument('--creators', 
+                        default=[],
+                        dest='creators',
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Creators. Separated by spaces or commas.')
+    parser.add_argument('--contributors', 
+                        default=[],
+                        dest='contributors', 
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Contributors. Separated by spaces or commas.')
+    parser.add_argument('--tags',
+                        default=[], 
+                        dest='subjects',
+                        type=lambda s: re.split(r' |,\s*', s),
+                        help='Tags (subjects). Separated by spaces or commas.')
     parser.add_argument('file', type=file, help='Path to JSON import file')
     parser.add_argument('-c', help='Optional Zope configuration file.')
     try:

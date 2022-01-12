@@ -19,9 +19,6 @@ from zExceptions import BadRequest
 
 RX_SPACE = re.compile(r'[^\w\s]')
 RX_UNDERSCORE = re.compile(r'\_')
-FALLBACK_IDS = {
-    'City wall of Dura-Europos': '15685985'  # production
-}
 
 
 def make_name_id(name):
@@ -237,8 +234,7 @@ if __name__ == '__main__':
             try:
                 to_id = loaded_ids[connection['connection']]
             except KeyError:
-                to_id = FALLBACK_IDS[connection['connection']]
-                rtype = 'part_of_physical'
+                pass
             else:
                 rtype = connection['relationshipType']
             cnxn_id = make_name_id(connection['connection'])

@@ -3,6 +3,7 @@ from __future__ import print_function
 from Acquisition import aq_parent
 import argparse
 import json
+import logging
 from pleiades.dump import getSite, spoofRequest
 from pprint import pprint
 from Products.Archetypes.exceptions import ReferenceException
@@ -16,10 +17,12 @@ import sys
 import transaction
 from zExceptions import BadRequest
 
+logger = logging.getLogger(__name__)
 
 RX_SPACE = re.compile(r'[^\w\s]')
 RX_UNDERSCORE = re.compile(r'\_')
-
+RX_PLACE_URI = re.compile(r'^https://pleiades\.stoa\.org/places/(\d+)$')
+RX_INTEGER = re.compile(r'^\d+$')
 
 def make_name_id(name):
     this_id = name.split(',')[0].strip()
@@ -231,22 +234,31 @@ if __name__ == '__main__':
         from_path = path_base + place_id
         from_place = site.restrictedTraverse(from_path.encode('utf-8'))
         for connection in connections:
-            try:
-                to_id = loaded_ids[connection['connection']]
-            except KeyError:
-                pass
+            connection_key = connection['connection']
+            m = RX_PLACE_URI.match(connection_key)
+            if m:
+                to_id = m.group(1)
             else:
-                rtype = connection['relationshipType']
-            cnxn_id = make_name_id(connection['connection'])
+                try:
+                    to_id = loaded_ids[connection_key]
+                except KeyError:
+                    m = RX_INTEGER.match(connection_key)
+                    if m:
+                        to_id = connection_key
+                    else:
+                        logger.error('Invalid connection key: "{}"'.format(connection_key))
+                        continue
+            to_path = path_base + to_id
+            to_place = site.restrictedTraverse(to_path.encode('utf-8'))
+            rtype = connection['relationshipType']
+            cnxn_id = make_name_id(to_place.Title())
             if cnxn_id in from_place.objectIds():
                 raise RuntimeError(
                     'Connection id collision: {}'.format(cnxn_id))
-            to_path = path_base + to_id
-            to_place = site.restrictedTraverse(to_path.encode('utf-8'))
             from_place.invokeFactory('Connection', id=cnxn_id)
             cnxn_obj = from_place[cnxn_id]
             cnxn_obj.setConnection([to_place.UID()])
-            cnxn_obj.setTitle(connection['connection'])
+            cnxn_obj.setTitle(to_place.Title())
             cnxn_obj.setRelationshipType(rtype)
             set_attribution(cnxn_obj, args)
 

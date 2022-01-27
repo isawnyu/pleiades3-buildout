@@ -158,7 +158,7 @@ if __name__ == '__main__':
                         dest='dry_run', help='No changes will be made.')
     parser.add_argument('--nolist', action='store_true', default=False,
                         dest='nolist', help='Do not output list of places.')
-    parser.add_argument('--message', default="Editorial adjustment (batch)",
+    parser.add_argument('--message', default="Created using the place_maker.py script from pleiades3-buildout.",
                         dest='message', help='Commit message.')
     parser.add_argument('--actor', default='admin',
                         dest='actor', help='Workflow actor. Defaults to "admin".')

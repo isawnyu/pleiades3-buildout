@@ -46,6 +46,10 @@ def populate_names(place_data, plone_context, args):
             nameTransliterated=name['nameTransliterated'],
             title=name['nameTransliterated'])
         name_obj = plone_context[new_id]
+        event = name_obj.workflow_history['pleiades_entity_workflow'][0]
+        event['comments'] = args.message
+        if args.actor != 'admin':
+            event['actor'] = args.actor
         for k, v in name.items():
             if k in ['title']:
                 continue
@@ -79,6 +83,10 @@ def populate_locations(place_data, plone_context, args):
             location_obj = make_location(location, plone_context, new_id)
         if location_obj is None:
             raise BadRequest('The id "{}" is invalid - it is already in use.'.format(new_id))
+        event = location_obj.workflow_history['pleiades_entity_workflow'][0]
+        event['comments'] = args.message
+        if args.actor != 'admin':
+            event['actor'] = args.actor
         for k, v in location.items():
             if k in ['title', 'geometry', 'id']:
                 continue
@@ -150,8 +158,10 @@ if __name__ == '__main__':
                         dest='dry_run', help='No changes will be made.')
     parser.add_argument('--nolist', action='store_true', default=False,
                         dest='nolist', help='Do not output list of places.')
-    parser.add_argument('--message', default="Editorial adjustment (batch)",
+    parser.add_argument('--message', default="Created using the place_maker.py script from pleiades3-buildout.",
                         dest='message', help='Commit message.')
+    parser.add_argument('--actor', default='admin',
+                        dest='actor', help='Workflow actor. Defaults to "admin".')
     parser.add_argument('--owner', default='admin',
                         dest='owner', help='Content owner. Defaults to "admin"')
     parser.add_argument('--groups',
@@ -203,6 +213,10 @@ if __name__ == '__main__':
             title=place['title'])
         loaded_ids[place['title']] = new_id
         content = content[new_id]
+        event = content.workflow_history['pleiades_entity_workflow'][0]
+        event['comments'] = args.message
+        if args.actor != 'admin':
+            event['actor'] = args.actor
         for k, v in place.items():
             if k in ['locations', 'names', 'connections', 'title']:
                 continue  # address these after the place is created in plone
@@ -263,6 +277,10 @@ if __name__ == '__main__':
             cnxn_obj.setConnection([to_place.UID()])
             cnxn_obj.setTitle(to_place.Title())
             cnxn_obj.setRelationshipType(rtype)
+            event = cnxn_obj.workflow_history['pleiades_entity_workflow'][0]
+            event['comments'] = args.message
+            if args.actor != 'admin':
+                event['actor'] = args.actor
             set_attribution(cnxn_obj, args)
 
             to_place.reindexObject()

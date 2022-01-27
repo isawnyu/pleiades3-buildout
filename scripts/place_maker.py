@@ -135,7 +135,13 @@ def set_attribution(content, args):
 
 def set_tags(content, args):
     if args.subjects:
-        populate_field(content, 'subject', args.subjects)
+        vals = ' '.join(args.subjects)
+        if ',' in vals:
+            vals = vals.split(',')
+        else:
+            vals = [vals]
+        for val in vals:
+            populate_field(content, 'subject', val)
 
 
 if __name__ == '__main__':
@@ -163,11 +169,8 @@ if __name__ == '__main__':
                         dest='contributors', 
                         type=lambda s: re.split(r' |,\s*', s),
                         help='Contributors. Separated by spaces or commas.')
-    parser.add_argument('--tags',
-                        default=[], 
-                        dest='subjects',
-                        type=lambda s: re.split(r' |,\s*', s),
-                        help='Tags (subjects). Separated by spaces or commas.')
+    parser.add_argument('--tags', default=[], dest='subjects', nargs='+',
+                        help='Tags (subjects). Separate multiple tags with commas.')
     parser.add_argument('file', type=file, help='Path to JSON import file')
     parser.add_argument('-c', help='Optional Zope configuration file.')
     try:

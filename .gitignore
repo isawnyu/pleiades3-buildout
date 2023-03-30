@@ -1,6 +1,7 @@
 .Python
 .installed.cfg
 .mr.developer.cfg
+.vscode
 supervisord.conf
 this-production.cfg
 bin

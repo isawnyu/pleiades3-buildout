@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 import argparse
 import itertools
@@ -47,14 +48,14 @@ def chunked_iterable(iterable, size):
 
 def translate_to_citation(json_record):
     json_key_to_citation_key = {
-        u"accessURI": "access_uri",
-        u"alternateURI": "alternate_uri",
-        u"bibliographicURI": "bibliographic_uri",
-        u"citationDetail": "citation_detail",
-        u"formattedCitation": "formatted_citation",
-        u"otherIdentifier": "identifier",
-        u"shortTitle": "short_title",
-        u"type": "type",
+        "accessURI": "access_uri",
+        "alternateURI": "alternate_uri",
+        "bibliographicURI": "bibliographic_uri",
+        "citationDetail": "citation_detail",
+        "formattedCitation": "formatted_citation",
+        "otherIdentifier": "identifier",
+        "shortTitle": "short_title",
+        "type": "type",
     }
 
     as_citation = {}
@@ -99,7 +100,7 @@ def update_places_from_json(container, json_data):
             results["problems"].append(
                 {
                     "ID": place_id,
-                    "msg": u"Place ID not found in {}".format(container_url),
+                    "msg": "Place ID not found in {}".format(container_url),
                 }
             )
             continue
@@ -126,16 +127,17 @@ def update_places_from_json(container, json_data):
             # Already updated?
             differences = diff_citations(new, citation)
             if not differences:
-                msg = u"Citation already matches new data"
+                msg = "Citation already matches new data"
             else:
-                msg = u"Data mismatch on keys: {}".format(discrepancies)
+                msg = "Data mismatch on 'old' values: {}".format(discrepancies)
             results["problems"].append({"ID": place_id, "msg": msg})
             continue
 
+        # Update the record
         error = update_citation(place, expected_index, new)
         if error:
             results["problems"].append(
-                {"ID": place_id, "msg": u"Citation update aborted: {}".format(error)}
+                {"ID": place_id, "msg": "Citation update aborted: {}".format(error)}
             )
         else:
             results["successes"].append(place_id)
@@ -145,7 +147,7 @@ def update_places_from_json(container, json_data):
 
 def show_progress():
     """Add a dot to the console so user can tell we're doing something"""
-    sys.stdout.write('.')
+    sys.stdout.write(".")
     sys.stdout.flush()
 
 
@@ -156,24 +158,28 @@ def main(app):
     json_data = ingest_json_file(input_file)
 
     print("Input File:", input_file)
-    print("Dry Run Mode?:", is_dry_run)
-    print("Working with {} record[s]".format(len(json_data)))
-
-    results = {}
+    print("Dry Run:", is_dry_run)
+    print("Ingested {} record[s] of JSON (ง ͡ʘ ͜ʖ ͡ʘ)ง".format(len(json_data)))
+    results = {"successes": [], "problems": []}
 
     for batch in chunked_iterable(json_data.items(), size=100):
         batch_results = update_places_from_json(
             container=site["places"], json_data=batch
         )
-        results.update(batch_results)
+        results["successes"].extend(batch_results["successes"])
+        results["problems"].extend(batch_results["problems"])
 
-        if not is_dry_run:
+        if not is_dry_run and batch_results["successes"]:
             transaction.commit()
             app._p_jar.cacheMinimize()
 
         show_progress()
 
-    print("{} record[s] were updated successfully!".format(len(results["successes"])))
+    print(
+        "Done!\n\n{} record[s] were updated successfully!".format(
+            len(results["successes"])
+        )
+    )
     if results["problems"]:
         print("{} records where skipped:".format(len(results["problems"])))
         for problem in results["problems"]:

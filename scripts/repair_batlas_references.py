@@ -1,5 +1,6 @@
 from __future__ import print_function
 import argparse
+import itertools
 import json
 import sys
 import transaction
@@ -13,20 +14,12 @@ def parse_arguments():
     )
     parser.add_argument("input_file", type=str, help="The JSON input file name")
     parser.add_argument("--dry-run", action="store_true", help="Enable dry run mode")
-    parser.add_argument(
-        "--just-one",
-        type=str,
-        default=None,
-        help="An optional ID for a single Place you'd like to update",
-    )
-
-    parser.add_argument(
-        "-c", type=str, help=argparse.SUPPRESS
-    )  # SUPPRESS will prevent it from showing in help
+    # Deal with run script wrapping. We're passed a -c flag we don't use:
+    parser.add_argument("-c", type=str, help=argparse.SUPPRESS)
 
     parsed = parser.parse_args()
 
-    return parsed.input_file, parsed.dry_run, parsed.just_one
+    return parsed.input_file, parsed.dry_run
 
 
 def ingest_json_file(file_path):
@@ -42,19 +35,18 @@ def ingest_json_file(file_path):
         raise
 
 
-def compare_dicts(model, candidate):
-    differences = []
+def chunked_iterable(iterable, size):
+    """Loop over an iterable and return chunks of @size"""
+    it = iter(iterable)
+    while True:
+        chunk = tuple(itertools.islice(it, size))
+        if not chunk:
+            break
+        yield chunk
 
-    for key in model:
-        if model[key] != candidate[key]:
-            differences.append(key)
 
-    return differences
-
-
-def convert_dict_format(json_record):
-    # Define the mapping of old keys to new keys
-    key_mapping = {
+def translate_to_citation(json_record):
+    json_key_to_citation_key = {
         u"accessURI": "access_uri",
         u"alternateURI": "alternate_uri",
         u"bibliographicURI": "bibliographic_uri",
@@ -65,56 +57,42 @@ def convert_dict_format(json_record):
         u"type": "type",
     }
 
-    translated = {}
+    as_citation = {}
     for key, value in json_record.iteritems():
-        # Map the old key to the new key
-        new_key = key_mapping[key]
+        new_key = json_key_to_citation_key[key]
         if isinstance(value, unicode):
             new_value = value.encode("utf-8")
         else:
             new_value = value
 
-        translated[new_key] = new_value
+        as_citation[new_key] = new_value
 
-    return translated
-
-
-def compare_citation_to_expectation(expectation, citation):
-    translated = convert_dict_format(expectation)
-    discrepancies = compare_dicts(translated, citation)
-
-    return discrepancies
+    return as_citation
 
 
-def update_citation(place, index, citation, data):
-    translated = convert_dict_format(data)
-    differences = compare_dicts(citation, translated)
-    if not differences:
-        return "Citation already matches new data"
+def diff_citations(model, candidate):
+    """Return keys where the values differ.
 
-    place.getReferenceCitations()[index] = translated
+    Assume both dicts have the same keys.
+    """
+    return [key for key in model.keys() if model[key] != candidate[key]]
 
 
-def update_places_from_json(container, json_data, is_dry_run, place_id):
+def update_citation(place, index, new_citation_value):
+    citations = place.getReferenceCitations()
+    citations[index] = new_citation_value
+
+    place.setReferenceCitations(citations)
+
+
+def update_places_from_json(container, json_data):
     results = {
         "successes": [],
         "problems": [],
     }
     container_url = container.absolute_url()
-    if place_id is not None:
-        if place_id in json_data:
-            records = {place_id: json_data[place_id]}
-        else:
-            raise ValueError(
-                "You specified a single Place ID, but this ID was not included "
-                "in your JSON file!"
-            )
-    else:
-        records = json_data
 
-    print("Working with {} record[s]".format(len(records)))
-
-    for place_id, data in records.items():
+    for place_id, data in json_data:
         # Do we have a Place with this ID?
         place = container.get(place_id)
         if place is None:
@@ -139,18 +117,22 @@ def update_places_from_json(container, json_data, is_dry_run, place_id):
             )
             continue
 
+        old = translate_to_citation(data["old"])
+        new = translate_to_citation(data["new"])
+
         # Does the current data match what was predicted?
-        discrepancies = compare_citation_to_expectation(data["old"], citation)
+        discrepancies = diff_citations(old, citation)
         if discrepancies:
-            results["problems"].append(
-                {
-                    "ID": place_id,
-                    "msg": u"Data mismatch on keys: {}".format(discrepancies),
-                }
-            )
+            # Already updated?
+            differences = diff_citations(new, citation)
+            if not differences:
+                msg = u"Citation already matches new data"
+            else:
+                msg = u"Data mismatch on keys: {}".format(discrepancies)
+            results["problems"].append({"ID": place_id, "msg": msg})
             continue
 
-        error = update_citation(place, expected_index, citation, data["new"])
+        error = update_citation(place, expected_index, new)
         if error:
             results["problems"].append(
                 {"ID": place_id, "msg": u"Citation update aborted: {}".format(error)}
@@ -161,25 +143,36 @@ def update_places_from_json(container, json_data, is_dry_run, place_id):
     return results
 
 
+def show_progress():
+    """Add a dot to the console so user can tell we're doing something"""
+    sys.stdout.write('.')
+    sys.stdout.flush()
+
+
 def main(app):
     app = spoofRequest(app)
     site = getSite(app)
-    p_jar = site._p_jar
-
-    input_file, is_dry_run, place_id = parse_arguments()
-    print("Input File:", input_file)
-    print("Dry Run Mode?:", is_dry_run)
-    if place_id is not None:
-        print("Processing a single Place: {}".format(place_id))
-
+    input_file, is_dry_run = parse_arguments()
     json_data = ingest_json_file(input_file)
 
-    results = update_places_from_json(
-        container=site["places"],
-        json_data=json_data,
-        is_dry_run=is_dry_run,
-        place_id=place_id,
-    )
+    print("Input File:", input_file)
+    print("Dry Run Mode?:", is_dry_run)
+    print("Working with {} record[s]".format(len(json_data)))
+
+    results = {}
+
+    for batch in chunked_iterable(json_data.items(), size=100):
+        batch_results = update_places_from_json(
+            container=site["places"], json_data=batch
+        )
+        results.update(batch_results)
+
+        if not is_dry_run:
+            transaction.commit()
+            app._p_jar.cacheMinimize()
+
+        show_progress()
+
     print("{} record[s] were updated successfully!".format(len(results["successes"])))
     if results["problems"]:
         print("{} records where skipped:".format(len(results["problems"])))

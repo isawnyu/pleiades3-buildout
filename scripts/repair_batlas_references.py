@@ -60,6 +60,8 @@ def translate_to_citation(json_record):
 
     as_citation = {}
     for key, value in json_record.iteritems():
+        key = key.strip()
+        value = value.strip()
         new_key = json_key_to_citation_key[key]
         if isinstance(value, unicode):
             new_value = value.encode("utf-8")
@@ -72,11 +74,11 @@ def translate_to_citation(json_record):
 
 
 def diff_citations(model, candidate):
-    """Return keys where the values differ.
+    """Return keys where the values differ after whitespace is stripped.
 
     Assume both dicts have the same keys.
     """
-    return [key for key in model.keys() if model[key] != candidate[key]]
+    return [key for key in model.keys() if model[key].strip() != candidate[key].strip()]
 
 
 def update_citation(place, index, new_citation_value):
@@ -159,7 +161,7 @@ def main(app):
 
     print("Input File:", input_file)
     print("Dry Run:", is_dry_run)
-    print("Ingested {} record[s] of JSON (ง ͡ʘ ͜ʖ ͡ʘ)ง".format(len(json_data)))
+    print("Ingested {:,} record[s] of JSON 😋".format(len(json_data)))
     results = {"successes": [], "problems": []}
 
     for batch in chunked_iterable(json_data.items(), size=100):
@@ -182,7 +184,7 @@ def main(app):
     )
     if results["problems"]:
         print("{} records where skipped:".format(len(results["problems"])))
-        for problem in results["problems"]:
+        for problem in sorted(results["problems"], key=lambda x: int(x["ID"])):
             print("{}: {}".format(problem["ID"], problem["msg"]))
     else:
         print("No records were skipped!")

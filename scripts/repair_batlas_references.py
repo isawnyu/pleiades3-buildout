@@ -135,14 +135,9 @@ def update_places_from_json(container, json_data):
             results["problems"].append({"ID": place_id, "msg": msg})
             continue
 
-        # Update the record
-        error = update_citation(place, expected_index, new)
-        if error:
-            results["problems"].append(
-                {"ID": place_id, "msg": "Citation update aborted: {}".format(error)}
-            )
-        else:
-            results["successes"].append(place_id)
+        # If we made it this far, update the record and call it a success:
+        update_citation(place, expected_index, new)
+        results["successes"].append(place_id)
 
     return results
 

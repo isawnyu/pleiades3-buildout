@@ -24,16 +24,10 @@ def parse_arguments():
 
 
 def ingest_json_file(file_path):
-    try:
-        with open(file_path, "r") as file:
-            data = json.load(file)
-            return data
-    except IOError:
-        print("Error: File {} does not exist or could not be read!".format(file_path))
-        raise
-    except ValueError:
-        print("Error: Invalid JSON data!")
-        raise
+    with open(file_path, "r") as file:
+        data = json.load(file)
+
+    return data
 
 
 def chunked_iterable(iterable, size):
@@ -59,7 +53,7 @@ def translate_to_citation(json_record):
     }
 
     as_citation = {}
-    for key, value in json_record.iteritems():
+    for key, value in json_record.items():
         key = key.strip()
         value = value.strip()
         new_key = json_key_to_citation_key[key]
@@ -89,10 +83,7 @@ def update_citation(place, index, new_citation_value):
 
 
 def update_places_from_json(container, json_data):
-    results = {
-        "successes": [],
-        "problems": [],
-    }
+    results = {"successes": [], "problems": [], "unneeded": []}
     container_url = container.absolute_url()
 
     for place_id, data in json_data:
@@ -129,20 +120,22 @@ def update_places_from_json(container, json_data):
             # Already updated?
             differences = diff_citations(new, citation)
             if not differences:
-                msg = "Citation already matches new data"
+                # Just report it was fixed already
+                results["unneeded"].append(place_id)
             else:
-                msg = "Data mismatch on 'old' values: {}".format(discrepancies)
-            results["problems"].append({"ID": place_id, "msg": msg})
+                results["problems"].append(
+                    {
+                        "ID": place_id,
+                        "msg": "Data mismatch on 'old' values: {}".format(
+                            discrepancies
+                        ),
+                    }
+                )
             continue
 
-        # Update the record
-        error = update_citation(place, expected_index, new)
-        if error:
-            results["problems"].append(
-                {"ID": place_id, "msg": "Citation update aborted: {}".format(error)}
-            )
-        else:
-            results["successes"].append(place_id)
+        # If we made it this far, update the record and call it a success:
+        update_citation(place, expected_index, new)
+        results["successes"].append(place_id)
 
     return results
 
@@ -162,7 +155,7 @@ def main(app):
     print("Input File:", input_file)
     print("Dry Run:", is_dry_run)
     print("Ingested {:,} record[s] of JSON 😋".format(len(json_data)))
-    results = {"successes": [], "problems": []}
+    results = {"successes": [], "problems": [], "unneeded": []}
 
     for batch in chunked_iterable(json_data.items(), size=100):
         batch_results = update_places_from_json(
@@ -170,6 +163,7 @@ def main(app):
         )
         results["successes"].extend(batch_results["successes"])
         results["problems"].extend(batch_results["problems"])
+        results["unneeded"].extend(batch_results["unneeded"])
 
         if not is_dry_run and batch_results["successes"]:
             transaction.commit()
@@ -178,12 +172,22 @@ def main(app):
         show_progress()
 
     print(
-        "Done!\n\n{} record[s] were updated successfully!".format(
+        "Done!\n\nUPDATES: {:,} records were updated successfully!".format(
             len(results["successes"])
         )
     )
+    if results["unneeded"]:
+        print(
+            "REDUNDANT: {:,} records were skipped because changes were already applied.".format(
+                len(results["unneeded"])
+            )
+        )
     if results["problems"]:
-        print("{} records where skipped:".format(len(results["problems"])))
+        print(
+            "PROBLEMS: {:,} records were skipped due to problems:".format(
+                len(results["problems"])
+            )
+        )
         for problem in sorted(results["problems"], key=lambda x: int(x["ID"])):
             print("{}: {}".format(problem["ID"], problem["msg"]))
     else:

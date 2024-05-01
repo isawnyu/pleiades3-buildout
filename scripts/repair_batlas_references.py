@@ -154,7 +154,7 @@ def main(app):
 
     print("Input File:", input_file)
     print("Dry Run:", is_dry_run)
-    print("Ingested {:,} record[s] of JSON 😋".format(len(json_data)))
+    print("Ingested {:,} records of JSON 😋".format(len(json_data)))
     results = {"successes": [], "problems": [], "unneeded": []}
 
     for batch in chunked_iterable(json_data.items(), size=100):
@@ -192,6 +192,11 @@ def main(app):
             print("{}: {}".format(problem["ID"], problem["msg"]))
     else:
         print("No records were skipped!")
+
+    if is_dry_run:
+        print("🙅 NO CHANGES APPLIED to the database (--dry-run selected)")
+    else:
+        print("✅ changes were committed to the database")
 
 
 if __name__ == "__main__":

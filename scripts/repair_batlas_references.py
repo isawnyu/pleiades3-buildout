@@ -133,6 +133,12 @@ def update_places_from_json(container, json_data):
                 )
             continue
 
+        # Are we actually proposing a change? Maybe there's a goof and
+        # `old` and `new` are the same...
+        if not diff_citations(old, new):
+            results["unneeded"].append(place_id)
+            continue
+
         # If we made it this far, update the record and call it a success:
         update_citation(place, expected_index, new)
         results["successes"].append(place_id)

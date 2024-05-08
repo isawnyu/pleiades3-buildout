@@ -8,7 +8,7 @@ from Products.CMFCore.utils import getToolByName
 from pleiades.dump import getSite, spoofRequest
 
 
-DARE_2_LOCATION_TYPE_VALUE = (u"associated modern",)
+DARE_2_LOCATION_TYPE_VALUE = u"associated modern"
 
 
 def parse_arguments():
@@ -53,7 +53,7 @@ def process_location(location, dry_run):
                     }
                 }
                 if not dry_run:
-                    obj.locationType = DARE_2_LOCATION_TYPE_VALUE
+                    obj.locationType = (DARE_2_LOCATION_TYPE_VALUE,)
                     obj.reindexObject()
         else:
             return None
@@ -114,7 +114,7 @@ def main(app):
         )
     )
     for result in results["successes"]:
-        print("{}: '{}' ==> '{}'".format(result["path"], result["old_value"], DARE_2_LOCATION_TYPE_VALUE))
+        print("{}: '{}' ==> '{}'".format(result["path"], result["old_value"], (DARE_2_LOCATION_TYPE_VALUE,)))
     print("\n")
 
     if results["unneeded"]:

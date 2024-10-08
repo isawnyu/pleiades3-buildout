@@ -52,12 +52,14 @@ if __name__ == '__main__':
 
     app = spoofRequest(app)
     server_name = environ.get('SERVER_NAME', 'pleiades.stoa.org').strip()
-    vh_root = environ.get('VH_ROOT', '/plone/').strip()
+    vh_root = environ.get('VH_ROOT', '/plone').strip()
+    # ensure path starts and ends with "/"
+    vh_path = "/" + vh_root.strip("/") + "/"
     app.REQUEST.environ.update({'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET',
                                 'SERVER_NAME': server_name,
                                 'VH_ROOT': vh_root})
     app.REQUEST.setServerURL('https', server_name)
-    app.REQUEST.other['VirtualRootPhysicalPath'] = vh_root
+    app.REQUEST.other['VirtualRootPhysicalPath'] = vh_path
 
     site = getSite(app)
     count = 0
@@ -112,7 +114,7 @@ if __name__ == '__main__':
                     g += PlaceGrapher(site, app).place(obj, vocabs=False)
                 elif b.portal_type == 'Link':
                     g += PlaceGrapher(site, app).link(obj)
-            except Exception, e:
+            except Exception as e:
                 log.exception("Failed to add object graph of %r to dump batch: %s", obj, e)
             count += 1
             if count % COMMIT_THRESHOLD == 0:
@@ -145,7 +147,7 @@ if __name__ == '__main__':
                     g += PlaceGrapher(site, app).place(obj, vocabs=False)
                 elif b.portal_type == 'Link':
                     g += PlaceGrapher(site, app).link(obj)
-            except Exception, e:
+            except Exception as e:
                 log.exception("Failed to add object graph of %r to dump batch: %s", obj, e)
             count += 1
             if count % COMMIT_THRESHOLD == 0:
@@ -176,7 +178,7 @@ if __name__ == '__main__':
             obj = b.getObject()
             try:
                 g += PlaceGrapher(site, app).place(obj, vocabs=False)
-            except Exception, e:
+            except Exception as e:
                 log.exception("Failed to add object graph of %r to dump batch: %s", obj, e)
         sys.stdout.write("""# Pleiades RDF Dump
 # Contents: Pleiades Errata %s
@@ -204,7 +206,7 @@ if __name__ == '__main__':
             obj = b.getObject()
             try:
                 g += PlaceGrapher(site, app).place(obj, vocabs=False)
-            except Exception, e:
+            except Exception as e:
                 log.exception("Failed to add object graph of %r to dump batch: %s", obj, e)
         sys.stdout.write("""# Pleiades RDF Dump
 # Contents: Pleiades Errata Range %s

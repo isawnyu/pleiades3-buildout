@@ -52,7 +52,8 @@ if __name__ == '__main__':
 
     app = spoofRequest(app)
     server_name = environ.get('SERVER_NAME', 'pleiades.stoa.org').strip()
-    vh_root = environ.get('VH_ROOT', '/plone').strip()
+    # vh_root should not have a trailing "/"
+    vh_root = environ.get('VH_ROOT', '/plone').strip().rstrip("/")
     # ensure path starts and ends with "/"
     vh_path = "/" + vh_root.strip("/") + "/"
     app.REQUEST.environ.update({'SERVER_PORT': '80', 'REQUEST_METHOD': 'GET',

@@ -4,15 +4,9 @@ import sys
 from optparse import OptionParser
 
 import transaction
-from AccessControl.SecurityManagement import newSecurityManager
-from AccessControl.SecurityManager import setSecurityPolicy
 from DateTime import DateTime
-from Products.CMFCore.tests.base.security import PermissiveSecurityPolicy
-from Products.CMFCore.tests.base.security import OmnipotentUser
-from Products.CMFCore.utils import getToolByName
-from Testing.makerequest import makerequest
 
-from pleiades.dump import secure, getSite, spoofRequest
+from pleiades.dump import getSite, spoofRequest
 from pleiades.rdf.common import PlaceGrapher, PersonsGrapher, VocabGrapher
 from pleiades.rdf.common import place_graph, RegVocabGrapher
 

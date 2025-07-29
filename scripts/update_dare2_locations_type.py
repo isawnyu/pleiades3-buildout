@@ -3,9 +3,10 @@ from __future__ import print_function
 import argparse
 import sys
 import transaction
+import gc
 
+from zope.component.hooks import setSite
 from Products.CMFCore.utils import getToolByName
-from pleiades.dump import getSite, spoofRequest
 
 
 DARE_2_LOCATION_TYPE_VALUE = u"associated modern"
@@ -62,14 +63,20 @@ def process_location(location, dry_run):
             "status": "problems",
             "result": {
                 "path": object_path,
-                "msg": e.message
+                "msg": str(e)
             }
         }
+    del obj
     return result
 
 def main(app):
-    app = spoofRequest(app)
-    site = getSite(app)
+    if 'Plone' in app.objectIds():
+        site = app.unrestrictedTraverse('/Plone')
+    elif 'plone' in app.objectIds():
+        site = app.unrestrictedTraverse('/plone')
+    else:
+        raise RuntimeError("No Plone site found at '/Plone' or '/plone'")
+    setSite(site)
     is_dry_run = parse_arguments()
 
     print("Dry Run:", is_dry_run)
@@ -78,7 +85,7 @@ def main(app):
     portal_catalog = getToolByName(site, "portal_catalog")
     query = {"portal_type": "Location", "review_state": "published"}
     b_start = 0
-    b_size = 100
+    b_size = 50
 
     while True:
         batch = portal_catalog.searchResults(
@@ -96,14 +103,17 @@ def main(app):
             result = process_location(location, is_dry_run)
             if result:
                 batch_results[result["status"]].append(result["result"])
+            del location
 
         results["successes"].extend(batch_results["successes"])
         results["problems"].extend(batch_results["problems"])
         results["unneeded"].extend(batch_results["unneeded"])
 
-        if not is_dry_run and batch_results["successes"]:
-            transaction.commit()
+        if batch_results["successes"]:
+            if not is_dry_run:
+                transaction.commit()
             app._p_jar.cacheMinimize()
+            gc.collect()
 
         show_progress()
         b_start += b_size
@@ -144,4 +154,9 @@ def main(app):
 
 
 if __name__ == "__main__":
-    main(app)
+    try:
+        main(app)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
